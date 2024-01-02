@@ -3,6 +3,17 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        mobileS: "330px",
+        mobileM: "400px",
+        mobileL: "480px",
+        tabletS: "600px",
+        tabletL: "768px",
+        desktopXS: "900px",
+        desktopS: "1080px",
+        desktopM: "1200px",
+        desktopL: "1400px",
+      },
       colors: {
         "dark-navy": "#020c1b",
         navy: "#0a192f",
