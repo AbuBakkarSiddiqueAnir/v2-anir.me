@@ -1,3 +1,16 @@
-<nav>
-    navbar
+---
+import { config } from "../../configurations/config";
+---
+
+<nav class="w-full px-12 py-4">
+  <div class="flex justify-between items-center">
+    <div>
+      <!-- <Logo/> -->
+      <h4 class="text-[48px] text-lightest-slate">Anir</h4>
+    </div>
+
+    <ul class="flex gap-x-4 text-xl">
+      {config.navLinks.map((link) => <ol class="text-lightest-slate"> <a href={link.url}>{link.name}</a></ol>)}
+    </ul>
+  </div>
 </nav>

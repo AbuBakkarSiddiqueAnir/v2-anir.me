@@ -1,4 +1,4 @@
-module.exports = {
+export const config = {
   email: "anirdms@gmail.com",
 
   socialMedia: [
@@ -23,8 +23,7 @@ module.exports = {
       url: "",
     },
   ],
-
-  navLinks: [
+  hashLinks: [
     {
       name: "About",
       url: "/#about",
@@ -41,9 +40,18 @@ module.exports = {
       name: "Contact",
       url: "/#contact",
     },
+  ],
+
+  navLinks: [
+    {
+      name: "Home",
+      url: "/",
+    },
     {
       name: "Blog",
       url: "/blog",
     },
   ],
 };
+
+export default config;

@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/common/footer.astro';
+import HashLink from '../components/common/hash-link/hashLink.svelte';
 import Navbar from '../components/common/navbar.astro';
 
 interface Props {
@@ -19,8 +20,9 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-navy ">
 		<Navbar/>
+		<HashLink client:idle />
 		<slot />
 		<Footer/>
 	</body>
