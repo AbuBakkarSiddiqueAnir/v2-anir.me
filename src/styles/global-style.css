@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --max-hero-h: max(115vh, 61.6875rem);
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .heading-huge {
+    @apply text-h-huge tracking-[-1.2px] lg:tracking-[-1.92px];
+  }
+  .heading-2xl {
+    @apply text-h-2xl tracking-[-0.8px] lg:tracking-[-1.2px];
+  }
+  .heading-xl {
+    @apply text-h-xl font-medium leading-[110%] md:leading-[100%];
+  }
+
+  .heading-lg {
+    @apply text-h-lg tracking-[-0.48px] lg:tracking-[-0.72px];
+  }
+  .heading-md {
+    @apply text-h-md;
+  }
+  .heading-sm {
+    @apply text-[0.75rem] leading-[107%] tracking-[0.375rem] md:text-[1rem] md:tracking-[0.5rem];
+  }
+
+  .body-1 {
+    @apply text-b-1;
+  }
+  .body-2 {
+    @apply text-b-2;
+  }
+  .body-2-bold {
+    @apply text-b-2 font-bold lg:font-medium;
+  }
+  .body-3 {
+    @apply text-b-3;
+  }
+  .body-4 {
+    @apply text-b-4;
+  }
+  .gradient-text-teal-pink-purple {
+    @apply bg-gradient-teal-pink-purple bg-clip-text text-transparent;
+  }
+  .title-text {
+    @apply text-base font-bold uppercase leading-relaxed tracking-[8px];
+  }
+  .small-title {
+    @apply font-inter text-title font-bold uppercase text-blue-deep;
+  }
+}
+
+@layer components {
+  .main-gradient-border::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background: rgb(42, 36, 109);
+    background: linear-gradient(
+      180deg,
+      rgba(42, 36, 109, 1) 0%,
+      rgba(148, 79, 235, 1) 0%,
+      rgba(252, 101, 0, 1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.25s linear;
+    border-radius: 0.5rem;
+  }
+
+  .cta-section:hover .main-gradient-border::before {
+    opacity: 1;
+  }
+}

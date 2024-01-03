@@ -1,7 +1,21 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/types/*": ["src/lib/types/*"],
+      "@/assets/*": ["src/assets/*"],
+    },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+    "jsxImportSource": "react",
+    "exactOptionalPropertyTypes": false,
+    "verbatimModuleSyntax": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.astro",
+    "**/*.svelte"
+, "svelte.config.ts"  ],
+  "extends": "astro/tsconfigs/strictest"
 }
