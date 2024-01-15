@@ -63,7 +63,7 @@
 >
   <ul>
     {#each config.hashLinks as link}
-      <ol
+      <li
         class={`${
           activeSectionId === link.url ? "bg-active" : ""
         } text-light-slate px-2`}
@@ -72,15 +72,12 @@
           class={`${activeSectionId === link.url ? "active" : ""} text-[14px]`}
           href={link.url}>{link.name}</a
         >
-      </ol>
+      </li>
     {/each}
   </ul>
 </nav>
 
 <style>
-  ul ol {
-    /* transition: background 0.2s ease-out; */
-  }
   .active {
     color: rgb(0, 0, 0);
   }

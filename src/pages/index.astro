@@ -1,9 +1,11 @@
 ---
 import Hero from '@/components/layout/home/hero.astro';
 import Layout from '../layouts/Layout.astro';
+import Alert from '@/components/common/alert/alert.astro';
 ---
 
 <Layout title="Anir.me">
+
 	<main class="text-8xl text-white text-center">
 		<Hero/>
 		<div id='about' class="w-full main-section min-h-screen flex justify-center items-center border border-gray-100">
@@ -18,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
 		<div id="contact" class="w-full main-section min-h-screen flex justify-center items-center border border-gray-100">
 			Contact
 		</div>
-
+		<Alert/>
 	</main>
 </Layout>
 
