@@ -77,7 +77,7 @@ export default {
           },
         ],
         h6: [
-          "clamp(0.7rem, 0.7vw + 1rem, 1.4rem)",
+          "clamp(0.7rem, 0.2vw + 0.7rem, 1rem)",
           {
             lineHeight: "187%",
             fontWeight: "700",
