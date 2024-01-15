@@ -42,14 +42,67 @@ export default {
         mono: ["SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "monospace"],
       },
       fontSize: {
-        xxs: "12px",
-        xs: "13px",
-        sm: "14px",
-        md: "16px",
-        lg: "18px",
-        xl: "20px",
-        xxl: "22px",
-        heading: "32px",
+        "h-huge": [
+          "clamp(1.5rem, 2.3vw + 1rem, 3rem)",
+          {
+            lineHeight: "140%",
+            fontWeight: "400",
+            letterSpacing: "0.17rem",
+          },
+        ],
+
+        "h-xl": [
+          "clamp(1.3rem, 2vw + 1rem, 2.3rem)",
+          {
+            lineHeight: "4.11rem",
+            fontWeight: "400",
+            letterSpacing: "0.095rem",
+          },
+        ],
+
+        "h-lg": [
+          "clamp(1rem, 1.5vw + 1rem, 2rem)",
+          {
+            lineHeight: "4.11rem",
+            fontWeight: "500",
+            letterSpacing: "0.06rem",
+          },
+        ],
+        "h-md": [
+          "clamp(0.8rem, 1.2vw + 0.7rem, 1.7rem)",
+          {
+            lineHeight: "125%",
+            fontWeight: "400",
+            letterSpacing: "0.038rem",
+          },
+        ],
+        h6: [
+          "clamp(0.7rem, 0.7vw + 1rem, 1.4rem)",
+          {
+            lineHeight: "187%",
+            fontWeight: "700",
+            letterSpacing: "0.011rem",
+          },
+        ],
+
+        "b-1": [
+          "clamp(1.1rem, 0.5vw + 0.8rem, 1.5rem)",
+          { lineHeight: "160%", fontWeight: "500", letterSpacing: "0.04rem" },
+        ],
+        "b-2": [
+          "clamp(1rem, 0.65vw + 1rem, 1.25rem)",
+          { lineHeight: "200%", fontWeight: "500", letterSpacing: "0.02rem" },
+        ],
+      },
+      spacing: {
+        sm: "0.5rem",
+        md: "1rem",
+        lg: "1.5rem",
+        xl: "3.13rem",
+        "2xl": "4rem",
+      },
+      boxShadow: {
+        "cta-primary": "0px -7px 17px -15px #D260BC",
       },
       borderRadius: {
         DEFAULT: "4px",
