@@ -43,9 +43,9 @@ export default {
       },
       fontSize: {
         "h-huge": [
-          "clamp(1.5rem, 2.3vw + 1rem, 3rem)",
+          "clamp(2rem, 3vw + 1rem, 3.94rem)",
           {
-            lineHeight: "140%",
+            lineHeight: "120%",
             fontWeight: "400",
             letterSpacing: "0.17rem",
           },
@@ -90,7 +90,7 @@ export default {
           { lineHeight: "160%", fontWeight: "500", letterSpacing: "0.04rem" },
         ],
         "b-2": [
-          "clamp(1rem, 0.65vw + 1rem, 1.25rem)",
+          "clamp(0.8rem, 0.75vw + 1rem, 1rem)",
           { lineHeight: "200%", fontWeight: "500", letterSpacing: "0.02rem" },
         ],
       },
