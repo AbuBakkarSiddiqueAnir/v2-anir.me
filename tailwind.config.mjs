@@ -39,7 +39,7 @@ export default {
           "system-ui",
           "sans-serif",
         ],
-        mono: ["SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "monospace"],
+        sfmono: "SFMono",
       },
       fontSize: {
         "h-huge": [
@@ -70,6 +70,14 @@ export default {
         ],
         "h-md": [
           "clamp(0.8rem, 1.2vw + 0.7rem, 1.7rem)",
+          {
+            lineHeight: "125%",
+            fontWeight: "400",
+            letterSpacing: "0.038rem",
+          },
+        ],
+        "h-sm": [
+          "clamp(0.7rem, 1vw + 0.5rem, 1rem)",
           {
             lineHeight: "125%",
             fontWeight: "400",

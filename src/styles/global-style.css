@@ -10,6 +10,16 @@
   html {
     @apply scroll-smooth;
   }
+
+  @font-face {
+    font-family: "SFMono";
+    src:
+      url("/fonts/SFMono/SFMono-medium.ttf")
+        url("/fonts/SFMono/SFMono-regular.ttf"),
+      url("/fonts/SFMono/SFMono-semibold.ttf");
+    font-style: normal;
+    font-display: swap;
+  }
 }
 
 @layer utilities {
