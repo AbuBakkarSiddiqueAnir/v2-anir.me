@@ -99,10 +99,10 @@ export default {
         ],
         "b-2": [
           "clamp(0.8rem, 0.75vw + 1rem, 1rem)",
-          { lineHeight: "200%", fontWeight: "500", letterSpacing: "0.02rem" },
+          { lineHeight: "140%", fontWeight: "500", letterSpacing: "0.02rem" },
         ],
         "b-3": [
-          "clamp(0.8rem, 0.5vw + 0.5rem, 0.8rem)",
+          "clamp(0.8rem, 0.7vw + 0.7rem, 0.9rem)",
           { lineHeight: "100%", fontWeight: "300", letterSpacing: "0.02rem" },
         ],
       },

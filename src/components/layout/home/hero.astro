@@ -1,4 +1,7 @@
+---
 
+import Navbar from '../../common/navbar.astro'
+---
 <script>
 import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -48,6 +51,7 @@ import { gsap } from "gsap";
 </script>
 
 <header id='hero' class="w-full main-section min-h-screen">
+  <Navbar/>
     <div class="max-w-[60rem] mt-[8vw]  mx-auto h-auto text-left">
         <h6 id='text-1' class="text-h6 text-green opacity-80 mb-3"> <pre>Hello, my name is </pre> </h6>
         <h1 id='text-2' class="text-h-huge font-bold font-sans text-white"> Abu Bakkar Anir.</h1>

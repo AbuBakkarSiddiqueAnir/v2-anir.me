@@ -1,0 +1,72 @@
+---
+import config from "@/configurations/config";
+
+---
+
+<section id='about' class="w-full main-section min-h-screen  ">
+    <div class="max-w-[60rem] mx-auto h-auto text-left">
+        <h3 class="text-h-md">About me <span class="text-green text-[10px]">______________________
+            </span></h3>
+
+        <div class="content max-w-full mt-10 flex gap-4">
+            <div class="w-3/5">
+                <p class="text-b-2 text-light-slate ">
+                    Hello! My name is anir and I enjoy creating things that live on the internet. 
+
+                    My interest in web development started back in 2012 when I decided to try editing custom Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
+                    <br>
+                    <br>
+                    Fast-forward to today, and I’ve had the privilege of working at an advertising agency, a start-up, a huge corporation, and a student-led design studio.
+                    My main focus these days is building accessible, inclusive products and digital experiences at Upstatement for a variety of clients.
+                    <br>
+                    <br>
+                    I also recently launched a course that covers everything you need to build a web app with the Spotify API using Node & React.
+                    Here are a few technologies I’ve been working with recently:
+                </p>
+
+                <div class="grid grid-cols-2 w-1/2 mt-3">
+                   {
+                    Object.keys(config.techs).map((key:string)=>{
+                        
+                    return (
+                        <ol>
+                            {
+                            config.techs[key].map((tech)=>(
+                                <li class="text-b-3 pl-4 py-1 relative font-mono text-slate">
+                                     
+                                    {tech.title}</li>
+                            ))
+                            }
+                            
+                            </ol>
+                    ) 
+
+                    }
+                
+                    )
+                   }
+                  
+                </div>
+                
+            </div>
+
+            <div class="w-2/5">
+                <div class="relative max-w-[18rem]">
+                    <img class="aspect-square" src="/anir.jpeg" alt="abu bakkar anir">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    li::before{
+        content:'>';
+        color:#64ffda;
+        font-size: 12px;
+        position: absolute;
+        left: 0;
+    }
+
+</style>

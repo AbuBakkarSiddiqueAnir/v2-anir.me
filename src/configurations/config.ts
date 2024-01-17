@@ -41,7 +41,62 @@ export const config = {
       url: "#contact",
     },
   ],
-
+  techs: {
+    Language: [
+      {
+        id: "golang",
+        title: "Golang",
+      },
+      {
+        id: "javascript",
+        title: "Javascript",
+      },
+      {
+        id: "typescript",
+        title: "Typescript",
+      },
+    ],
+    Frontend: [
+      {
+        id: "react",
+        title: "React",
+      },
+      {
+        id: "nextjs",
+        title: "Nextjs",
+      },
+      {
+        id: "astro",
+        title: "Astro",
+      },
+      {
+        id: "svelte",
+        title: "Svelte",
+      },
+    ],
+    Backend: [
+      {
+        id: "expressjs",
+        title: "ExpressJs",
+      },
+    ],
+    Database: [
+      {
+        id: "mongodb",
+        title: "MongoDB",
+      },
+      {
+        id: "sql",
+        Title: "MySQL",
+      },
+    ],
+    CMS: [
+      {
+        id: "sanity",
+        title: "Sanity",
+      },
+    ],
+  },
   navLinks: [
     {
       name: "Home",
