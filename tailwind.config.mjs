@@ -29,7 +29,36 @@ export default {
         "green-tint": "rgba(100, 255, 218, 0.1)",
         pink: "#f57dff",
         blue: "#57cbff",
+
+        pink: {
+          light: "#FF3BD4",
+          dark: "#E248E5",
+        },
+        blue: {
+          slate: "#9D9FC5",
+          main: "#078BBB",
+          deep: "#5449C2",
+          midnight: "#0F1021",
+          navy: "#1D204B",
+        },
+        purple: {
+          main: "#7064E9",
+          dark: "#3F427C",
+          light: "#ECECFF",
+          midnight: "#2A246D",
+          pale: "#CCCEEF",
+          custom: "#A8A0F9",
+        },
+        indigo: "#5076FF",
+        green: "#39D89E",
+        pale: "#CCCEEF",
+        white: "#D4D5F1",
+        gray: "#7376AA",
+        dark: "#070710",
+        orange: "#FC6500",
+        red: "#EF4444",
       },
+
       fontFamily: {
         sans: [
           "Calibre",
