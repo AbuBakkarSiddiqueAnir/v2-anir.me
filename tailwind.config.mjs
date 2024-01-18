@@ -39,6 +39,7 @@ export default {
           "system-ui",
           "sans-serif",
         ],
+        prompt: "Prompt",
         sfmono: "SFMono",
       },
       fontSize: {
