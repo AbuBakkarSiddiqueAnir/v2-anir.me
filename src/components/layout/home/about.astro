@@ -1,6 +1,6 @@
 ---
 import config from "@/configurations/config";
-
+type TechKey = "Language" | "Frontend" | "Backend" | 'Database' | 'CMS'
 ---
 
 <section id='about' class="w-full main-section min-h-screen  ">
@@ -26,12 +26,12 @@ import config from "@/configurations/config";
 
                 <div class="grid grid-cols-2 w-1/2 mt-3">
                    {
-                    Object.keys(config.techs).map((key:string)=>{
+                    Object.keys(config.techs).map((key)=>{
                         
                     return (
                         <ol>
                             {
-                            config.techs[key].map((tech)=>(
+                            config.techs[key as TechKey].map((tech)=>(
                                 <li class="text-b-3 pl-4 py-1 relative font-mono text-slate">
                                      
                                     {tech.title}</li>
