@@ -9,7 +9,7 @@ import { config } from "../../configurations/config";
       <h4 class="text-h-lg text-lightest-slate">AA</h4>
     </div>  
     <ul class="flex gap-x-5 ">
-      {config.navLinks.map((link) => <ol class="text-light-slate text-h-sm font-sfmono font-extralight"> <a href={link.url}>{link.name}</a></ol>)}
+      {config.navLinks.map((link) => <li class="text-light-slate text-h-sm font-serif font-light hover:text-green transition-colors"> <a href={link.url}>{link.name}</a></li>)}
     </ul>
   </div>
 </nav>
