@@ -4,7 +4,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@/types/*": ["src/lib/types/*"],
-      "@/assets/*": ["src/assets/*"],
+      "@/assets/*": ["src/assets/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",
@@ -15,7 +15,8 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.astro",
-    "**/*.svelte"
-, "svelte.config.ts"  ],
+    "**/*.svelte",
+    "svelte.config.ts"
+  ],
   "extends": "astro/tsconfigs/strictest"
 }

@@ -1,96 +1,20 @@
 ---
 import Navbar from "@/components/common/navbar.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from 'astro:content'
 
+const posts = await getCollection('posts')
+console.log(posts)
 ---
 
 <Layout title="Anir.me/blog">
-
-	<main class="text-8xl text-white text-center">
-		<Navbar/>
-		<div class="min-h-screen pt-20">
-			<div class="max-auto max-w-full flex flex-col gap-6 px-32">
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			<div class="max-w-[70rem] py-5 px-7 border border-green  flex gap-4 items-center cursor-pointer">
-				<div class="min-w-[10%]">
-					<img class="aspect-square max-h-[8rem]" src="https://th.bing.com/th/id/R.024b85a216911318541cda029aa016d4?rik=2im90toF2EyI%2fg&pid=ImgRaw&r=0" alt="">
-				</div>
-				<div class="w-4/5 text-b-2 text-left">
-
-					<h5 class="text-h-md mb-4">dolor sit amet consectetur</h5>
-					Lorem ipsum dolor ates officia, voluptatibus voluptate quo, blanditiis quam! Fugiat quas nemo aspernatur quo, commodi perferendis earum obcaecati in veritatis, ut, sunt voluptatum! Fugiat vero hic vitae libero quasi numquam maxime id totam explicabo? Possimus perspiciatis ipsam blanditiis mollitia dignissimos incidunt vero velit unde harum dolor repudiandae nulla, architecto, a ut, illum molestias!
-				</div>
-
-			</div>
-			</div>
-
-
-		</div>
-	</main>
+  <main class="text-center text-8xl text-white">
+    <Navbar />
+    <div class="min-h-screen pt-20">
+      <div class="max-auto flex max-w-full flex-col gap-6 px-32">
+        
+ 
+      </div>
+    </div>
+  </main>
 </Layout>
-

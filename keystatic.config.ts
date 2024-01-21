@@ -12,6 +12,13 @@ export default config({
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
+        hero: fields.cloudImage({
+          label: "Avatar",
+          description: "The avatar for this user",
+          validation: {
+            isRequired: true,
+          },
+        }),
         content: fields.document({
           label: "Content",
           formatting: true,
