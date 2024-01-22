@@ -1,8 +1,13 @@
 import { config, fields, collection } from "@keystatic/core";
 
 export default config({
+  ui: {
+    brand: { name: "Anir.me" },
+  },
   storage: {
-    kind: "local",
+    kind: "github",
+    repo: `${"AbuBakkarSiddiqueAnir"}/${"v2-anir.me"}`,
+    branchPrefix: "anirApp",
   },
   collections: {
     posts: collection({
@@ -12,13 +17,7 @@ export default config({
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
-        hero: fields.cloudImage({
-          label: "Avatar",
-          description: "The avatar for this user",
-          validation: {
-            isRequired: true,
-          },
-        }),
+
         content: fields.document({
           label: "Content",
           formatting: true,
