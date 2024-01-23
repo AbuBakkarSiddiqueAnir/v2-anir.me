@@ -14,6 +14,12 @@
         {
           name: "Otterdev Official Website",
           technologies: ["Astro", "Svelte", "ReactJS", "Sanity", "GSAP"],
+          link: "",
+        },
+        {
+          name: "Anytech Website",
+          technologies: ["Astro", "Svelte", "ReactJS", "Sanity"],
+          link: "https:anytxn.com",
         },
       ],
     },
@@ -28,6 +34,8 @@
         {
           name: "Realtime Ambulance Management System",
           technologies: ["ReactJS", "Express", "MongoDB", "RestAPI"],
+
+          link: "",
         },
       ],
     },
@@ -42,22 +50,27 @@
         {
           name: "Ezytor Website Builder",
           technologies: ["Laravel Blade", "ReactJS"],
+          link: "",
         },
         {
           name: "Graphicsly WordPress Plugin",
           technologies: ["ReactJS"],
+          link: "",
         },
         {
           name: "Flowgiri and Chrome Extension",
           technologies: ["ReactJS"],
+          link: "",
         },
         {
-          name: "Uihut Contributions",
+          name: "Uihut Website",
           technologies: ["NuxtJS", "AdonisJS"],
+          link: "",
         },
         {
-          name: "Console Web3 Project",
+          name: "Console (Web3 Project)",
           technologies: ["NextJS"],
+          link: "",
         },
       ],
     },
@@ -102,12 +115,19 @@
           </div>
 
           <div>
-            <h4 class="text-[1rem] mb-2">Contributions:</h4>
+            <h4 class="text-[0.9rem] text-white mb-2 te">Contributions:</h4>
             <ul class="text-b-3">
               {#each company.projects as project}
                 <article class="mb-3">
-                  <h6 class="text-[0.9rem] mb-2 text-green">
+                  <h6 class="text-[0.9rem] mb-2 text-green flex gap-x-2">
                     {project.name}
+                    <a href={project.link} target="_blank">
+                      <img
+                        class="w-4"
+                        src="/icons/externalLink.svg"
+                        alt=""
+                      /></a
+                    >
                   </h6>
                   <ol class="flex gap-4 flex-wrap">
                     {#each project.technologies as technology}
