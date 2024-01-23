@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Alert from "@/components/common/alert/alert.astro";
 import About from "@/components/layout/home/about.astro";
 import Experience from "@/components/layout/home/experience/experience.astro";
+import Projects from "@/components/layout/home/projects/projects.astro"
 ---
 
 <Layout title="Anir.me">
@@ -11,12 +12,8 @@ import Experience from "@/components/layout/home/experience/experience.astro";
     <Hero />
     <About />
     <Experience />
-    <div
-      id="projects"
-      class="main-section border-gray-100 flex min-h-screen w-full items-center justify-center border"
-    >
-      Work
-    </div>
+    <Projects/>
+
     <div
       id="contact"
       class="main-section border-gray-100 flex min-h-screen w-full items-center justify-center border"
