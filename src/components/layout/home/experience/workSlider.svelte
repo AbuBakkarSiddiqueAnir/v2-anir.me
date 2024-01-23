@@ -2,23 +2,66 @@
   import Navigation from "./navigation.svelte";
   import emblaCarouselSvelte from "embla-carousel-svelte";
 
-  let projectPages = [
+  const workExperience = [
     {
       index: 0,
-      title: "Uihut",
+      position: "Frontend Developer",
+      company: "Otterdev",
+      location: "Singapore/Remote",
+      period: "05/2023 - Currently Working",
+      whatIDid: "",
+      projects: [
+        {
+          name: "Otterdev Official Website",
+          technologies: ["Astro", "Svelte", "ReactJS", "Sanity", "GSAP"],
+        },
+      ],
     },
     {
       index: 1,
-      title: "Coredevs",
+      position: "Mern Stack Developer",
+      company: "Coredevs",
+      location: "Bangladesh/Hybrid",
+      period: "2/2023 - 4/2023",
+      whatIDid: "",
+      projects: [
+        {
+          name: "Realtime Ambulance Management System",
+          technologies: ["ReactJS", "Express", "MongoDB", "RestAPI"],
+        },
+      ],
     },
     {
       index: 2,
-      title: "Otterdev",
+      position: "Software Developer",
+      company: "Besnik/Uihut",
+      location: "Onsite",
+      period: "04/2022 - 01/2023",
+      whatIDid: "",
+      projects: [
+        {
+          name: "Ezytor Website Builder",
+          technologies: ["Laravel Blade", "ReactJS"],
+        },
+        {
+          name: "Graphicsly WordPress Plugin",
+          technologies: ["ReactJS"],
+        },
+        {
+          name: "Flowgiri and Chrome Extension",
+          technologies: ["ReactJS"],
+        },
+        {
+          name: "Uihut Contributions",
+          technologies: ["NuxtJS", "AdonisJS"],
+        },
+        {
+          name: "Console Web3 Project",
+          technologies: ["NextJS"],
+        },
+      ],
     },
-    {
-      index: 3,
-      title: "3BitsMind",
-    },
+    // Add more experiences as needed
   ];
 
   let innerWidth = 0;
@@ -46,40 +89,75 @@
     id="work-viewport"
     class=" mx-auto max-w-full overflow-hidden md:max-w-[100%] xl:max-w-[68%]"
   >
-    <div
-      bind:this={carouselContainer}
-      class="embla__container flex max-h-[15rem]"
-    >
-      {#each projectPages as page}
+    <div bind:this={carouselContainer} class="embla__container flex h-[16rem]">
+      {#each workExperience as company}
         <article
-          class="embla__slide flex-1 border border-green border-y-green-tint p-3 mb-12"
+          class="embla__slide flex-1 border border-green min-h-[13rem] overflow-y-auto border-y-green-tint p-3 mb-12"
         >
-          <h3 class="text-h-md">Lead Engineer @ Upstatement</h3>
-          <p class="text-b-2">May 2018 - Present</p>
-          <ul class="text-b-3">
-            <li>
-              Deliver high-quality, robust production code for a diverse array
-              Deliver high-quality, robust production code for a diverse array
-            </li>
-            <li>
-              Deliver high-quality, robust production code for a diverse array
-              Deliver high-quality, robust production code for a diverse array
-            </li>
-            <li>
-              Deliver high-quality, robust production code for a diverse array
-              Deliver high-quality, robust production code for a diverse array
-            </li>
-          </ul>
+          <div class="flex justify-between">
+            <h3 class="text-[1.2rem] mb-3 text-puple-light">
+              {company.position}
+            </h3>
+            <p class="text-[12px]">{company.period}</p>
+          </div>
+
+          <div>
+            <h4 class="text-[1rem] mb-2">Contributions:</h4>
+            <ul class="text-b-3">
+              {#each company.projects as project}
+                <article class="mb-3">
+                  <h6 class="text-[0.9rem] mb-2 text-green">
+                    {project.name}
+                  </h6>
+                  <ol class="flex gap-4 flex-wrap">
+                    {#each project.technologies as technology}
+                      <li
+                        class="border text-[0.8rem] px-2 py-[2px] border-green rounded-lg"
+                      >
+                        {technology}
+                      </li>
+                    {/each}
+                  </ol>
+                </article>
+              {/each}
+
+              <li></li>
+            </ul>
+          </div>
         </article>
       {/each}
     </div>
   </div>
-  <Navigation {projectPages} {scrollToSpecificCompany} {activeSlideIndex} />
+  <Navigation {workExperience} {scrollToSpecificCompany} {activeSlideIndex} />
 </div>
 
 <style>
   .embla__container {
     display: flex;
     flex-direction: column;
+  }
+
+  .embla__slide::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .embla__slide::-webkit-scrollbar-thumb {
+    background-color: #4caf50;
+  }
+
+  .embla__slide::-webkit-scrollbar-thumb:hover {
+    background-color: #45a049;
+  }
+
+  .embla__slide::-webkit-scrollbar-corner {
+    background-color: #333;
+  }
+
+  .embla__slide::-webkit-scrollbar-track-piece:drag {
+    background-color: #ddd;
+  }
+
+  .embla__slide::-webkit-scrollbar-thumb:drag {
+    background-color: #999;
   }
 </style>

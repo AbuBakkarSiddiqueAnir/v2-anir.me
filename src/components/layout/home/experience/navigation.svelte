@@ -1,13 +1,13 @@
 <script>
   import { twJoin } from "tailwind-merge";
   export let scrollToSpecificCompany;
-  export let projectPages;
+  export let workExperience;
   export let activeSlideIndex;
 </script>
 
 <nav class=" absolute flex gap-y-3 left-[0%] z-20 bottom-0 top-8 min-w-20">
   <div class="flex gap-y-3 flex-col">
-    {#each projectPages as page}
+    {#each workExperience as page}
       <button
         aria-label="Previous Slide"
         on:click={() => scrollToSpecificCompany(page.index)}
@@ -16,7 +16,7 @@
           page.index === activeSlideIndex && "text-green"
         )}
       >
-        {page.title}
+        {page.company}
       </button>
     {/each}
   </div>
