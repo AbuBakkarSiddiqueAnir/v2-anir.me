@@ -45,7 +45,9 @@ import Navbar from "../../common/navbar.astro";
   tl1.add(fadeInAndSlideIn("#text-1", 150));
   tl2.add(fadeInAndSlideIn("#text-2", 200));
   tl3.add(fadeInAndSlideIn("#text-3", 350));
-  tl4.add(fadeInAndSlideIn("#text-4", 500));
+  tl4.add(fadeInAndSlideIn("#text-4", 450));
+  tl4.add(fadeInAndSlideIn("#contact-linkedin-button", 100));
+  
 </script>
 
 <header id="hero" class="main-section min-h-screen w-full">
@@ -73,8 +75,9 @@ import Navbar from "../../common/navbar.astro";
     <a
       href="https://www.linkedin.com/in/abu-bakkar-anir/"
       rel="noreferrer"
+      id='contact-linkedin-button'
       target="_blank"
-      class="f cursor-pointer rounded-md border border-green px-6 py-3 text-b-2 font-light text-green"
+      class="f cursor-pointer block mt-5 max-w-max rounded-sm border border-green px-6 py-2  text-b-2 font-light text-green"
     >
       Connect On LinkedIn
     </a>
