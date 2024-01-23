@@ -5,19 +5,19 @@
   let projectPages = [
     {
       index: 0,
-      title: "1st company",
+      title: "Uihut",
     },
     {
       index: 1,
-      title: "2nd company",
+      title: "Coredevs",
     },
     {
       index: 2,
-      title: "3rd company",
+      title: "Otterdev",
     },
     {
       index: 3,
-      title: "4th company",
+      title: "3BitsMind",
     },
   ];
 
@@ -33,6 +33,7 @@
   };
 
   const scrollToSpecificCompany = (index) => {
+    activeSlideIndex = index;
     api.scrollTo(index);
   };
 </script>
@@ -51,7 +52,7 @@
     >
       {#each projectPages as page}
         <article
-          class="embla__slide flex-1 border border-r-emerald-400 p-3 mb-10"
+          class="embla__slide flex-1 border border-green border-y-green-tint p-3 mb-12"
         >
           <h3 class="text-h-md">Lead Engineer @ Upstatement</h3>
           <p class="text-b-2">May 2018 - Present</p>
