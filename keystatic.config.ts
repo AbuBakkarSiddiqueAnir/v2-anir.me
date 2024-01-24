@@ -4,10 +4,13 @@ export default config({
   ui: {
     brand: { name: "Anir.me" },
   },
+  // storage: {
+  //   kind: "github",
+  //   repo: `${"AbuBakkarSiddiqueAnir"}/${"v2-anir.me"}`,
+  //   branchPrefix: "anirApp",
+  // },
   storage: {
-    kind: "github",
-    repo: `${"AbuBakkarSiddiqueAnir"}/${"v2-anir.me"}`,
-    branchPrefix: "anirApp",
+    kind: "local",
   },
   collections: {
     posts: collection({
