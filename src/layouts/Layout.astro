@@ -10,22 +10,16 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-
 <script>
+  const body = document.querySelector("body") as HTMLBodyElement;
+  body.addEventListener("mousemove", (e) => {
+    const x = (e as MouseEvent).clientX;
+    const y = (e as MouseEvent).clientY;
 
-const body  =   document.querySelector('body') as HTMLBodyElement
-  body.addEventListener('mousemove', (e) => {
-
-        const x = (e as MouseEvent).clientX
-        const y = (e as MouseEvent).clientY 
-
-        body.style.setProperty('--centerX', `${x}px`)
-        body.style.setProperty('--centerY', `${y}px`)
-    
-    })
-
+    body.style.setProperty("--centerX", `${x}px`);
+    body.style.setProperty("--centerY", `${y}px`);
+  });
 </script>
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -35,7 +29,7 @@ const body  =   document.querySelector('body') as HTMLBodyElement
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-navy relative">
+  <body class="relative bg-navy">
     <!-- <div id="layer" class="absolute inset-0"></div> -->
     <HashLink client:idle />
     <slot />
@@ -43,11 +37,9 @@ const body  =   document.querySelector('body') as HTMLBodyElement
   </body>
 </html>
 
-
-
 <style>
-#layer {
-  z-index: 1000;
+  #layer {
+    z-index: 1000;
     background: radial-gradient(
       550px circle at var(--centerX) var(--centerY),
       rgba(29, 32, 75, 0.7),
@@ -57,5 +49,4 @@ const body  =   document.querySelector('body') as HTMLBodyElement
     opacity: 1;
     transition: opacity 500ms;
   }
-
 </style>

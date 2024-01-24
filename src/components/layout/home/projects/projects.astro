@@ -1,13 +1,23 @@
-    <div
-      id="projects"
-      class="main-section  flex min-h-[80vh] w-full "
-    >
-        <div class="mx-auto h-auto max-w-[60rem] text-left">
-     <h3 class="text-h-md pb-2 text-left">
+---
+import IndividualProjectsContainer from "./IndividualProjectsContainer.astro";
+---
+
+<section id="projects" class="main-section flex min-h-[80vh] w-full py-16">
+  <div class="mx-auto h-auto w-[60rem] text-left">
+    <h3 class="pb-2 text-left text-h-md">
       Projects I worked at ? <span class="text-[10px] text-green"
         >______________________
       </span>
     </h3>
 
-        </div>
-    </div>
+    <IndividualProjectsContainer />
+  </div>
+</section>
+
+<style>
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+</style>

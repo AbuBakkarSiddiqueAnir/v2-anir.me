@@ -1,0 +1,30 @@
+---
+const { project } = Astro.props;
+---
+
+<div class="project-card-xl z-10 flex h-[15rem] w-full gap-3 rounded-[10px]">
+  <div class="project-thumbnail w-[60%]">
+    <img
+      class="aspect-auto object-contain"
+      alt={project.title}
+      src={project.thumbnail}
+      sizes="1.25rem"
+    />
+  </div>
+
+  <div class="project-content w-[40%]">
+    <h5 class="heading-md text-h-md font-medium text-white">{project.title}</h5>
+    <p class="text-b-3">
+      {project.description}
+    </p>
+    <ol>
+      {
+        project.technologies.map((tech: string) => (
+          <li class="text-b-2">{tech}</li>
+        ))
+      }
+    </ol>
+  </div>
+</div>
+
+<style></style>

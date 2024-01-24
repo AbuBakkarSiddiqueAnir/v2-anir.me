@@ -95,7 +95,7 @@
 </script>
 
 <svelte:window bind:innerWidth />
-<div id="work_carousel" class="mx-auto w-full relative">
+<div id="work_carousel" class="relative mx-auto w-full">
   <div
     use:emblaCarouselSvelte={{ plugins, options }}
     on:emblaInit={onInit}
@@ -105,21 +105,21 @@
     <div bind:this={carouselContainer} class="embla__container flex h-[16rem]">
       {#each workExperience as company}
         <article
-          class="embla__slide flex-1 border border-green min-h-[13rem] overflow-y-auto border-y-green-tint p-3 mb-12"
+          class="embla__slide mb-12 min-h-[13rem] flex-1 overflow-y-auto border border-green border-y-green-tint p-3"
         >
           <div class="flex justify-between">
-            <h3 class="text-[1.2rem] mb-3 text-puple-light">
+            <h3 class="text-puple-light mb-3 text-[1.2rem]">
               {company.position}
             </h3>
             <p class="text-[12px]">{company.period}</p>
           </div>
 
           <div>
-            <h4 class="text-[0.9rem] text-white mb-2 te">Contributions:</h4>
+            <h4 class="te mb-2 text-[0.9rem] text-white">Contributions:</h4>
             <ul class="text-b-3">
               {#each company.projects as project}
                 <article class="mb-3">
-                  <h6 class="text-[0.9rem] mb-2 text-green flex gap-x-2">
+                  <h6 class="mb-2 flex gap-x-2 text-[0.9rem] text-green">
                     {project.name}
                     <a href={project.link} target="_blank">
                       <img
@@ -129,10 +129,10 @@
                       /></a
                     >
                   </h6>
-                  <ol class="flex gap-4 flex-wrap">
+                  <ol class="flex flex-wrap gap-4">
                     {#each project.technologies as technology}
                       <li
-                        class="border text-[0.8rem] px-2 py-[2px] border-green rounded-lg"
+                        class="rounded-lg border border-green px-2 py-[2px] text-[0.8rem]"
                       >
                         {technology}
                       </li>
