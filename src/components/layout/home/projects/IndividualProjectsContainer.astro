@@ -19,7 +19,7 @@ const projects = [
     github: null,
     live: "otterdev.io",
   },
-    {
+  {
     title: "Ezytor",
     thumbnail: "/projects/uihut/ezytor.png",
     description:
@@ -32,6 +32,6 @@ const projects = [
 ---
 
 <script></script>
-<div class="card-container mb-16 mt-16 flex flex-col gap-y-8 inter">
+<div class="card-container inter mb-16 mt-16 flex flex-col gap-y-8">
   {projects.map((project) => <Project {project} />)}
 </div>
