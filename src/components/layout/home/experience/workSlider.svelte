@@ -95,7 +95,7 @@
 </script>
 
 <svelte:window bind:innerWidth />
-<div id="work_carousel" class="relative mx-auto w-full">
+<div id="work_carousel" class="relative mx-auto w-full inter">
   <div
     use:emblaCarouselSvelte={{ plugins, options }}
     on:emblaInit={onInit}
