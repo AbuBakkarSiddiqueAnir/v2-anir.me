@@ -2,29 +2,55 @@
 const { project } = Astro.props;
 ---
 
-<div class="project-card-xl z-10 flex h-[15rem] w-full gap-3 rounded-[10px]">
+<div class="project-card-xl z-10 flex w-full rounded-[10px]">
   <div class="project-thumbnail w-[60%]">
     <img
-      class="aspect-auto object-contain"
+      class="aspect-auto object-cover"
       alt={project.title}
       src={project.thumbnail}
       sizes="1.25rem"
     />
   </div>
 
-  <div class="project-content w-[40%]">
-    <h5 class="heading-md text-h-md font-medium text-white">{project.title}</h5>
-    <p class="text-b-3">
-      {project.description}
-    </p>
-    <ol>
-      {
-        project.technologies.map((tech: string) => (
-          <li class="text-b-2">{tech}</li>
-        ))
-      }
-    </ol>
+  <div class="project-content relative w-[40%]">
+    <div class="absolute left-[-20%] top-[18%] rounded-lg text-navy shadow-lg">
+      <div class="relative">
+        <div
+          class="layer absolute inset-0 z-10 rounded-sm bg-[rgba(5,5,10,0.9)]"
+        >
+        </div>
+
+        <div class="relative z-20 px-2 py-4">
+          <h5 class="heading-md mb-2 text-h-md font-medium text-white">
+            {project.title}
+          </h5>
+          <p class="mb-4 text-b-3 text-lightest-slate">
+            {project.description}
+          </p>
+          <ol class="flex gap-3">
+            {
+              project.technologies.map((tech: string) => (
+                <li class="rounded-md bg-[rgba(45,212,191,.1)] px-2  py-1 text-b-3 text-green">
+                  {tech}
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+
+      <a
+        class="block h-6 w-full cursor-pointer bg-navy pl-2 text-left text-b-2 text-zinc-300 shadow-2xl"
+      >
+        <span> Preview</span>
+        <img src="/icons/rightarrow.svg" class="h-2 w-2" alt="right arrow" />
+      </a>
+    </div>
   </div>
 </div>
 
-<style></style>
+<style>
+  .layer {
+    filter: blur(1px);
+  }
+</style>
