@@ -1,6 +1,6 @@
 ---
 import Footer from "../components/common/footer.astro";
-import HashLink from "../components/common/hash-link/hashLink.svelte";
+// import HashLink from "../components/common/hash-link/hashLink.svelte";
 import "../styles/global-style.css";
 
 interface Props {
@@ -31,7 +31,7 @@ const { title } = Astro.props;
   </head>
   <body class="relative bg-navy">
     <!-- <div id="layer" class="absolute inset-0"></div> -->
-    <HashLink client:idle />
+    <!-- <HashLink client:idle /> -->
     <slot />
     <Footer />
   </body>
