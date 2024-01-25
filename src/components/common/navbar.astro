@@ -9,6 +9,24 @@ import { config } from "../../configurations/config";
   ) as HTMLElement;
   let lastScrollTop = 150;
 
+    const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      const offsetTop = targetSection.offsetTop;
+
+      gsap.to(window, {
+        scrollTo: offsetTop,
+        duration: 1,
+        ease: "power2.inOut"
+      });
+    });
+  });
+
+
   window.addEventListener("scroll", () => {
     const currentScrollTop = window.scrollY;
     if (currentScrollTop > lastScrollTop) {
