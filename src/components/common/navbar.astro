@@ -2,18 +2,50 @@
 import { config } from "../../configurations/config";
 ---
 
-<nav class="w-full px-12 py-4">
+<script>
+  const nav = document.getElementById("navbar") as HTMLElement;
+  const navLinksContainer = document.getElementById(
+    "nav-links-cotainer",
+  ) as HTMLElement;
+  let lastScrollTop = 150;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollTop = window.scrollY;
+    if (currentScrollTop > lastScrollTop) {
+      nav.classList.add("nav-shadow");
+    } else {
+      nav.classList.remove("nav-shadow");
+    }
+    if (currentScrollTop > lastScrollTop + 100) {
+      nav.classList.remove("scroll-upward");
+      nav.classList.add("scroll-downward");
+      navLinksContainer.classList.remove("s-f-nav");
+      navLinksContainer.classList.add("b-f-nav");
+    } else {
+      nav.classList.remove("scroll-downward");
+      nav.classList.add("scroll-upward");
+      navLinksContainer.classList.remove("b-f-nav");
+      navLinksContainer.classList.add("s-f-nav");
+    }
+  });
+</script>
+
+<nav
+  id="navbar"
+  class="scroll-upward sticky top-0 z-40 w-full bg-navy px-12 transition-all duration-300"
+>
   <div class="flex items-center justify-between">
     <div>
       <!-- <Logo/> -->
-      <h4 class="text-h-lg text-lightest-slate">
-        <img src="/logo/anir.png"/>
-      </h4>
+      <h4 class="text-h-lg leading-8 text-lightest-slate">Anir</h4>
     </div>
-    <ul class="flex gap-x-5">
+    <ul
+      id="nav-links-cotainer"
+      class="flex gap-x-5 text-b-3 transition-all duration-300"
+    >
       {
         config.navLinks.map((link) => (
-          <li class="inter text-b-3 font-light  text-light-slate transition-colors hover:text-green">
+          <li class="inter nav-link  font-light  text-light-slate transition-colors hover:text-green">
             {" "}
             <a href={link.url}>{link.name}</a>
           </li>

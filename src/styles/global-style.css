@@ -94,6 +94,21 @@
   .small-title {
     @apply font-inter text-title font-bold uppercase text-blue-deep;
   }
+  .scroll-upward {
+    @apply py-4;
+  }
+  .scroll-downward {
+    @apply py-6;
+  }
+  .nav-shadow {
+    @apply shadow-lg;
+  }
+  .s-f-nav {
+    @apply text-b-3;
+  }
+  .b-f-nav {
+    @apply text-b-2;
+  }
 }
 
 @layer components {
