@@ -1,24 +1,67 @@
 <footer class="fle flex h-10 w-full items-center border-t border-green/10">
   <div class="mx-auto flex min-w-max items-center gap-x-20">
     <p class="inter text-b-3 text-white">
-      Built by <a href="/" class="text-green">Aniuzzaman anir</a>
+      Built by <a href="/" class="text-green"> @Aniuzzaman anir</a>
     </p>
     <ul class="flex gap-x-3">
-      <li>
+      <li class="tooltip">
+        <span class="tooltiptext">
+          Twitter
+        </span>
         <a href="">
           <img src="/icons/twitter.png" class="w-5" alt="" />
         </a>
       </li>
-      <li>
+      <li class="tooltip">
+          <span class="tooltiptext">
+          LinkedIn
+        </span>
         <a href="">
           <img src="/icons/linkedin.png" class="w-5" alt="" />
         </a>
       </li>
-      <li>
+      <li class="tooltip">
+          <span class="tooltiptext">
+          Github
+        </span>
         <a href="">
           <img src="/icons/github.png" class="w-5" alt="" />
+        </a>
+      </li>
+          <li class="tooltip">
+              <span class="tooltiptext">
+          Leetcode
+        </span>
+        <a href="">
+          <img src="/icons/leetcode.svg" class="w-5" alt="" />
         </a>
       </li>
     </ul>
   </div>
 </footer>
+
+
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: #020c1b;
+  color: #ccd6f6;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 6px;
+  position: absolute;
+  left: -200%;
+  bottom: 190%;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
