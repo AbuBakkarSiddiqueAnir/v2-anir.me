@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap");
 
 :root {
   --max-hero-h: max(115vh, 61.6875rem);
@@ -27,11 +27,9 @@
   }
   @font-face {
     font-family: "Calibre";
-    src:
-      url("/fonts/Calibre/Calibre-light.ttf")
-        url("/fonts/Calibre/Calibre-medium.ttf")
-        url("/fonts/Calibre/Calibre-regular.ttf"),
-      url("/fonts/Calibre/Calibre-semibold.ttf");
+    src: url("/fonts/Calibre/Calibre-light.ttf")
+      url("/fonts/Calibre/Calibre-medium.ttf")
+      url("/fonts/Calibre/Calibre-regular.ttf");
     font-style: normal;
     font-display: swap;
   }
