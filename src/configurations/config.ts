@@ -103,9 +103,13 @@ export const config = {
       url: "/",
     },
     {
-      name: "Blog",
-      url: "/blog",
+      name: "Projects Archive",
+      url: "projects-archive",
     },
+    // {
+    //   name: "Blog",
+    //   url: "/blog",
+    // },
     {
       name: "About",
       url: "#about",
