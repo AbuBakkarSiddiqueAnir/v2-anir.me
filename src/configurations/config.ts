@@ -102,10 +102,10 @@ export const config = {
       name: "Home",
       url: "/",
     },
-    {
-      name: "Projects Archive",
-      url: "projects-archive",
-    },
+    // {
+    //   name: "Projects Archive",
+    //   url: "projects-archive",
+    // },
     // {
     //   name: "Blog",
     //   url: "/blog",
@@ -114,10 +114,10 @@ export const config = {
       name: "About",
       url: "#about",
     },
-    {
-      name: "Experience",
-      url: "#experience",
-    },
+    // {
+    //   name: "Experience",
+    //   url: "#experience",
+    // },
     {
       name: "Work",
       url: "#work",
