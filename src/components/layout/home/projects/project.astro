@@ -12,40 +12,27 @@ const { project } = Astro.props;
     />
   </div>
 
-  <div class="project-content relative w-[40%]">
-    <div class="absolute left-[-20%] top-[18%] rounded-lg text-navy shadow-lg">
-      <div class="relative">
-        <div
-          class="layer absolute inset-0 z-10 rounded-sm bg-[rgba(5,5,10,0.9)]"
-        >
-        </div>
-
-        <div class="relative z-20 px-2 py-4">
-          <h5 class="heading-md mb-2 text-h-md font-medium text-white">
-            {project.title}
-          </h5>
-          <p class="mb-4 text-b-3 text-lightest-slate">
-            {project.description}
-          </p>
-          <ol class="flex gap-3">
-            {
-              project.technologies.map((tech: string) => (
-                <li class="rounded-md bg-[rgba(45,212,191,.1)] px-2  py-1 text-b-3 text-green">
-                  {tech}
-                </li>
-              ))
-            }
-          </ol>
-        </div>
+  <div class="project-content relative w-[40%] pt-4">
+    <h5 class="heading-md mb-2 text-end text-h-md font-medium text-[#fff]">
+      {project.title}
+    </h5>
+    <div
+      class="absolute left-[-20%] top-[22%] bg-light-navy text-navy shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]"
+    >
+      <div class="relative z-20 px-2 py-4">
+        <p class="mb-4 text-end text-b-3 text-lightest-slate">
+          {project.description}
+        </p>
+        <ol class="flex justify-end gap-3">
+          {
+            project.technologies.map((tech: string) => (
+              <li class="rounded-md bg-[rgba(45,212,191,.1)] px-2  py-1 text-b-3 text-green">
+                {tech}
+              </li>
+            ))
+          }
+        </ol>
       </div>
-
-      <a
-        href="/"
-        class="flex h-6 w-full cursor-pointer items-center gap-3 bg-navy pl-2 text-left text-b-3 text-white shadow-2xl"
-      >
-        <span> Preview</span>
-        <img src="/icons/rightarrow.svg" class="h-4 w-4" alt="right arrow" />
-      </a>
     </div>
   </div>
 </div>
