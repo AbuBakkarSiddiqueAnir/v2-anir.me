@@ -3,7 +3,7 @@ import config from "@/configurations/config";
 type TechKey = "Language" | "Frontend" | "Backend" | "Database" | "CMS";
 ---
 
-<section id="about" class="main-section min-h-[80vh] w-full px-6">
+<section id="about" class="main-section min-h-[90vh] w-full px-6">
   <div class="mx-auto h-auto max-w-[60rem] text-left">
     <h3 class="text-h-md">
       About me <span class="text-[10px] text-green"
@@ -31,12 +31,12 @@ type TechKey = "Language" | "Frontend" | "Backend" | "Database" | "CMS";
           I’ve been working with recently:
         </p>
 
-        <div class="my-6 grid w-1/2 grid-cols-2">
+        <div class="my-6 grid w-full md:w-2/3 grid-cols-3">
           {
             Object.keys(config.techs).map((key) => {
               return (
                 <div class="mt-3">
-                  <h5 class="text-b-2 ">{key}</h5>
+                  <h5 class="text-b-2 mb-2">{key}</h5>
                   <ol>
                     {config.techs[key as TechKey].map((tech) => (
                       <li class="relative py-1 pl-4 font-mono text-b-3 text-slate">
@@ -56,11 +56,11 @@ type TechKey = "Language" | "Frontend" | "Backend" | "Database" | "CMS";
           class="group relative max-w-[18rem] cursor-pointer overflow-visible"
         >
           <div
-            class="absolute left-[3%] top-[3%] z-[-1] h-full w-full rounded-sm border border-green/40 transition-all duration-300 group-hover:left-[4%] group-hover:top-[4%]"
+            class="absolute left-[3%] top-[3%] z-[-1] h-full w-full rounded-sm border group-hover:border-dashed border-solid border-green/40 transition-all duration-300 group-hover:left-[4%] group-hover:top-[4%]"
           >
           </div>
           <img
-            class="z-50 aspect-square rounded-sm hue-rotate-[15deg] transition-all duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:hue-rotate-[0deg]"
+            class="z-50 aspect-square rounded-sm hue-rotate-[17deg] transition-all duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:hue-rotate-[0deg]"
             src="/anir.jpeg"
             alt="abu bakkar anir"
           />

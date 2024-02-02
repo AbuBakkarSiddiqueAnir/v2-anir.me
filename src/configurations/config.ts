@@ -66,6 +66,10 @@ export const config = {
         title: "Nextjs",
       },
       {
+        id: "vue",
+        title: "Vuejs",
+      },
+      {
         id: "astro",
         title: "Astro",
       },
@@ -82,18 +86,22 @@ export const config = {
     ],
     Database: [
       {
-        id: "mongodb",
-        title: "MongoDB",
+        id: "nosql",
+        title: "NoSql",
       },
       {
         id: "sql",
-        Title: "MySQL",
+        title: "SQL",
       },
     ],
     CMS: [
       {
         id: "sanity",
         title: "Sanity",
+      },
+      {
+        id: "keystatic",
+        title: "Keystatic",
       },
     ],
   },
@@ -106,10 +114,10 @@ export const config = {
     //   name: "Projects Archive",
     //   url: "projects-archive",
     // },
-    // {
-    //   name: "Blog",
-    //   url: "/blog",
-    // },
+    {
+      name: "Blog",
+      url: "/blog",
+    },
     {
       name: "About",
       url: "#about",
