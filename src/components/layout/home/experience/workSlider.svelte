@@ -95,12 +95,12 @@
 </script>
 
 <svelte:window bind:innerWidth />
-<div id="work_carousel" class="inter relative mx-auto w-full">
+<div id="work_carousel" class="inter relative mx-auto w-full flex flex-col">
   <div
     use:emblaCarouselSvelte={{ plugins, options }}
     on:emblaInit={onInit}
     id="work-viewport"
-    class=" mx-auto max-w-full overflow-hidden md:max-w-[100%] xl:max-w-[68%]"
+    class=" mx-auto overflow-hidden max-w-[68%]"
   >
     <div bind:this={carouselContainer} class="embla__container flex h-[16rem]">
       {#each workExperience as company}

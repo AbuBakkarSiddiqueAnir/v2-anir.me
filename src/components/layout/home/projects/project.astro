@@ -2,8 +2,8 @@
 const { project } = Astro.props;
 ---
 
-<div class="project-card-xl z-10 flex w-full rounded-[10px]">
-  <div class="project-thumbnail w-[60%]">
+<div class="project-card-xl z-10 flex w-full md:flex-row flex-col rounded-[10px]">
+  <div class="project-thumbnail w-full md:w-[60%]">
     <img
       class="aspect-auto object-cover"
       alt={project.title}
@@ -12,12 +12,12 @@ const { project } = Astro.props;
     />
   </div>
 
-  <div class="project-content relative w-[40%] pt-4">
+  <div class="project-content relative w-full md:w-[40%] pt-4">
     <h5 class="heading-md mb-2 text-end text-h-md font-medium text-[#fff]">
       {project.title}
     </h5>
     <div
-      class="absolute left-[-20%] top-[22%] bg-light-navy text-navy shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]"
+      class="md:absolute left-[-20%] top-[22%] bg-light-navy text-navy shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]"
     >
       <div class="relative z-20 px-2 py-4">
         <p class="mb-4 text-end text-b-3 text-lightest-slate">
@@ -34,7 +34,7 @@ const { project } = Astro.props;
         </ol>
       </div>
     </div>
-    <div class="mt-40 flex justify-end gap-3">
+    <div class="md:mt-40 mt-4 flex justify-end gap-3">
       <a href="">
         <img src="/icons/github.svg" class="w-5" alt="" />
       </a>
