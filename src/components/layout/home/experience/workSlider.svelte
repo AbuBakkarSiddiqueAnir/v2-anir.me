@@ -95,12 +95,17 @@
 </script>
 
 <svelte:window bind:innerWidth />
-<div id="work_carousel" class="inter relative mx-auto w-full flex flex-col">
+<div
+  id="work_carousel"
+  class="inter relative mx-auto w-full gap-3 md:flex-row flex-col flex"
+>
+  <Navigation {workExperience} {scrollToSpecificCompany} {activeSlideIndex} />
+
   <div
     use:emblaCarouselSvelte={{ plugins, options }}
     on:emblaInit={onInit}
     id="work-viewport"
-    class=" mx-auto overflow-hidden max-w-[68%]"
+    class="w-[99%] md:w-[70%] overflow-hidden md:order-2 order-1"
   >
     <div bind:this={carouselContainer} class="embla__container flex h-[16rem]">
       {#each workExperience as company}
@@ -148,7 +153,6 @@
       {/each}
     </div>
   </div>
-  <Navigation {workExperience} {scrollToSpecificCompany} {activeSlideIndex} />
 </div>
 
 <style>
