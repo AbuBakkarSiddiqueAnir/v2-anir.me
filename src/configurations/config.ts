@@ -115,8 +115,8 @@ export const config = {
     //   url: "projects-archive",
     // },
     {
-      name: "Blog",
-      url: "/blog",
+      name: "Articles",
+      url: "/articles",
     },
     // {
     //   name: "About",
