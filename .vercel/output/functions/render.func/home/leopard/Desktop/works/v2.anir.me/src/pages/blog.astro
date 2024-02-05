@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import { createGitHubReader } from "@keystatic/core/reader/github";
+import keystaticConfig from "../../keystatic.config.ts";
+
+const reader = createGitHubReader(keystaticConfig, {
+  repo: "AbuBakkarSiddiqueAnir/v2-anir.me",
+  token: process.env.GITHUB_PAT,
+});
+
+const posts = await reader.collections.posts.all();
+console.log(posts);
+---
+
+<Layout title="Anir.me/blog">
+  <main class="text-center text-8xl text-white">
+    <div class="min-h-screen pt-20">
+      <div class="max-auto flex max-w-full flex-col gap-6 px-32"></div>
+    </div>
+  </main>
+</Layout>
