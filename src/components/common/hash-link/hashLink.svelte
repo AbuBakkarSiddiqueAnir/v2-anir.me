@@ -14,6 +14,14 @@
   };
   let halfViewportHeight = null;
   onMount(() => {
+    // const homepageURL = process.env.HOMEPAGE_URL;
+    const homepageURL = "http://127.0.0.1:4321/";
+    const currentURL = window.location.href;
+    if (currentURL === homepageURL) {
+      floatNav.classList.remove("hidden");
+    } else {
+      floatNav.classList.add("hidden");
+    }
     // Calculating maximum available scrolling distance
     sectionElements = document.querySelectorAll(".main-section");
     halfViewportHeight = window.innerHeight * 0.5;
@@ -48,7 +56,7 @@
       // Ensuring the navigation component never goes out of the screen & kind of stays in the middle
       const newY = Math.min(
         scrollPosition / ((maxScroll / window.innerHeight) * 3),
-        document.documentElement.clientHeight - floatNav.offsetHeight,
+        document.documentElement.clientHeight - floatNav.offsetHeight
       );
 
       gsap.to(floatNav, { y: newY, duration: 0.3 });

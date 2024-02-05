@@ -4,17 +4,18 @@ import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 
-const allPosts = await getCollection("posts");
-console.log(allPosts)
+const allPosts = await getCollection("articles");
+const tags = ['Devops', 'Frontend','Backend', 'Atro']
+// console.log(allPosts)
 ---
 
-<Layout title="Anir.me/blog">
+<Layout title="Articles">
   <main class="text-center text-8xl text-white">
-    <div class="min-h-screen pt-20">
-       {
-      allPosts.map((post) => (
-        <Card post={post} url={`/articles/${post.slug}/`}/>
 
+    <div class="min-h-screen pt-20 max-w-[51rem] mx-auto flex flex-col gap-y-4">
+       {
+      allPosts.map((post,index) => (
+        <Card post={post} index={index} url={`/articles/${post.slug}/`}/>
       ))
     }
     </div>

@@ -13,17 +13,42 @@ export default config({
     kind: "local",
   },
   collections: {
-    posts: collection({
-      label: "Posts",
+    articles: collection({
+      label: "articles",
       slugField: "title",
-      path: "src/content/posts/*",
+      path: "src/content/articles/*",
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
+        date: fields.date({
+          label: "Article date",
+          description: "The date of the article published",
+        }),
+        heroImage: fields.image({
+          label: "HeroImage",
+          directory: "public/images/hero",
+          publicPath: "/images/hero/",
+        }),
 
+        tags: fields.array(fields.text({ label: "Tag" }), {
+          label: "Tag",
+          itemLabel: (props) => props.value,
+        }),
         content: fields.document({
           label: "Content",
-          formatting: true,
+          formatting: {
+            alignment: {
+              center: true,
+              end: true,
+            },
+            inlineMarks: {
+              keyboard: true,
+              subscript: true,
+              superscript: true,
+              underline: true,
+            },
+          },
+
           dividers: true,
           links: true,
           images: true,
