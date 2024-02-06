@@ -15,5 +15,19 @@ console.log(entry)
 const { Content } = await entry.render();
 ---
 <Layout title={entry.data.title}>
-  <Content />
+  <section class="bg-dark-navy relative">
+ <div class="article  text-white p-6 max-w-[40rem] mx-auto">
+      <h1 class="text-4xl font-bold text-center">{entry.data.title}</h1>
+      <h2 class="text-lg text-right">{entry.data.date}</h2>
+      <img src={entry.data.heroImage} alt="Hero Image" class="my-6 mx-auto max-h-[20rem]" />
+      <div class="mx-auto flex gap-2 mb-3">
+        {entry.data.tags.map((tag:any )=> (
+          <span  class="rounded-md bg-[rgba(45,212,191,.1)] px-2  py-1 text-b-3 text-green">{tag}</span>
+        ))}
+      </div>
+      <Content />
+
+    </div>
+  </section>
+
 </Layout>

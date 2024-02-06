@@ -8,22 +8,7 @@ import node from "@astrojs/node";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  integrations: [
-    react(),
-    markdoc(),
-    keystatic(),
-    tailwind(),
-    svelte(),
-    mdx({
-      // `syntaxHighlight` inherited from Markdown
-
-      // Markdown `remarkPlugins` ignored,
-      // only `remarkPlugin2` applied.
-      remarkPlugins: [remarkPlugin2],
-      // `gfm` overridden to `false`
-      gfm: false,
-    }),
-  ],
+  integrations: [react(), markdoc(), keystatic(), tailwind(), svelte(), mdx()],
   output: "hybrid",
   adapter: node({
     mode: "standalone",
