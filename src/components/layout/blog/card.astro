@@ -7,17 +7,17 @@ console.log(post)
 
 <a href={url}>
 <div
-  class="flex max-w-[50rem] cursor-pointer items-center gap-4 border-b border-b-green/20  pb-3"
+  class="flex max-w-[50rem] cursor-pointer items-center gap-4 border-b border-b-green/20 sm:flex-row flex-col  pb-3"
 >
-  <div class="w-4/5 text-left text-b-2">
+  <div class="sm:w-4/5 w-full text-left text-b-2 order-2 sm:order-1 ">
     <h5 class="mb-4 text-b-2 font-bold text-green/60">{index + 1}: {post.data.title}</h5>
    <p class="text-b-3 leading-6">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, velit. Debitis tempore laborum, temporibus laudantium doloribus incidunt culpa quae corporis magnam cumque vitae similique in obcaecati esse fugit eos autem.
    </p>
   </div>
-  <div class="min-w-[10%]">
+  <div class="min-w-[10%] sm:order-2 order-1">
     <img
-      class="aspect-square max-h-[8rem]"
+      class="max-h-[8rem]"
       src={post.data.heroImage}
       alt=""
     />
