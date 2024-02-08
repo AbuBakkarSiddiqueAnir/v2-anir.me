@@ -15,8 +15,13 @@
   let halfViewportHeight = null;
   onMount(() => {
     // const homepageURL = process.env.HOMEPAGE_URL;
-    const homepageURL = "http://127.0.0.1:4321/";
+    const homepageURL =
+      "http://localhost:4321/" ||
+      "https://aanir.com" ||
+      "http://localhost:4321" ||
+      "https://aanir.com/";
     const currentURL = window.location.href;
+    console.log(currentURL);
     if (currentURL === homepageURL) {
       floatNav.classList.remove("hidden");
     } else {

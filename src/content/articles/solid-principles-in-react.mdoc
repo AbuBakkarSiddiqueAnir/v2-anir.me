@@ -1,0 +1,77 @@
+---
+title: Solid Principles in React
+date: '2024-02-08'
+heroImage: /images/hero/solid-principles-in-react/heroImage.webp
+tags:
+  - React
+  - solid
+---
+> #### I'm pretty sure, as a software developer, you have a sound knowledge of solid principles and you always uses them in your code :) Just jokinggg!
+
+Ohh, It's about react! Gosh, we don't need those principles in react! do we?
+
+I myself have been working with react for more than two and half years. And also it happens that, i knew about  solid principles for more than 2 years. but it just happened like some months ago that i have been tryyying.. consciously to use them in my react code. And believe, it changed my code and alongside with my code structure.
+
+No more nonsense talk, just dive into main topic.😠.....oka oka..
+
+Gonna be a boring article, let me get a coffee for you please...
+
+![](/content/images/solid-principles-in-react/coffe-gif.gif)
+
+### 
+
+> ### 1. Single Responsibility Principle (SRP)
+
+A class should serve a single, clearly defined purpose, reducing the need for frequent changes.
+
+We can implement the srp into our react code, by making sure that each component in our application has a specific, well-defined work to do. Likely, a component can be responsible for displaying a static part of a page, handling a user input or doing some fetch calls. By limiting and controlling the responsibility, we can improve the code quality , clarity and maintainability of our code-base.
+
+- Better not mix different/'different kind of' jobs in one component
+- Using composition will make sure reusable components will be able to build complex UI's.
+- Need to handle props and state wisely
+
+```
+We need to make our components small and do one single thing.
+```
+
+```javascript
+import React, { useEffect, useState } from "react";
+import { View, Text, Image } from "react-native";
+import axios from "axios";
+
+const ListItems = () => {
+ const [listItems, setListItems] = useState([]);
+ const [isLoading, setIsLoading] = useState(true);
+
+ useEffect(() => {
+   axios.get("https://.../listitems/").then((res) => {
+       setListItems(res.data)
+   }).catch(e => {
+       errorToast(e.message);
+   }).finally(() => {
+       setIsLoading(false);
+   })
+ }, [])
+
+ if (isLoading){
+   return <Text>Loading...</Text>
+ }
+
+ return (
+   <View>
+       {listItems.map(item => {
+           return (
+               <View>
+                    <Image src={{uri:item.img}} />
+                    <Text>{item.name}</Text>
+                    <Text>{item.description}</Text>
+               </View>
+           )
+       })}
+   </View>
+ );
+};
+
+
+export default ListItems;
+```

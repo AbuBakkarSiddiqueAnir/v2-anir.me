@@ -36,22 +36,35 @@ export default config({
         }),
         content: fields.document({
           label: "Content",
-          formatting: {
-            alignment: {
-              center: true,
-              end: true,
-            },
-            inlineMarks: {
-              keyboard: true,
-              subscript: true,
-              superscript: true,
-              underline: true,
+          links: true,
+          layouts: [[1], [1, 1]],
+          images: {
+            directory: "public/content/images",
+            publicPath: "/content/images/",
+
+            schema: {
+              title: fields.text({
+                label: "Caption",
+                description:
+                  "The text to display under the image in a caption.",
+              }),
             },
           },
-
           dividers: true,
-          links: true,
-          images: true,
+          formatting: {
+            alignment: true,
+            blockTypes: true,
+            headingLevels: true,
+            inlineMarks: {
+              code: true,
+              bold: true,
+              italic: true,
+              underline: true,
+              strikethrough: true,
+            },
+            listTypes: true,
+          },
+          tables: true,
         }),
       },
     }),

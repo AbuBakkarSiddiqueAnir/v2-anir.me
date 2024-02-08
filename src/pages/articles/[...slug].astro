@@ -19,7 +19,7 @@ const { Content } = await entry.render();
  <div class="article  text-white p-6 max-w-[40rem] mx-auto">
       <h1 class="text-4xl font-bold text-center">{entry.data.title}</h1>
       <h2 class="text-lg text-right">{entry.data.date}</h2>
-      <img src={entry.data.heroImage} alt="Hero Image" class="my-6 mx-auto max-h-[20rem]" />
+      <img src={entry.data.heroImage} alt="Hero Image" class="my-6 mx-auto max-h-[20rem] max-w-full" />
       <div class="mx-auto flex gap-2 mb-3">
         {entry.data.tags.map((tag:any )=> (
           <span  class="rounded-md bg-[rgba(45,212,191,.1)] px-2  py-1 text-b-3 text-green">{tag}</span>
@@ -31,3 +31,73 @@ const { Content } = await entry.render();
   </section>
 
 </Layout>
+
+
+<style is:inline>
+  pre{
+    font-size: 0.8rem;
+    padding:1rem;
+    background-color: #202020;
+  }
+  ol{
+    list-style: initial;
+  }
+/* Headings */
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+/* Span */
+span {
+  font-weight: bold; /* Example styling */
+  color: #333; /* Example styling */
+}
+
+/* Images */
+img {
+  max-width: 20em;
+  margin: 2em 0;
+  height: auto;
+  display: block; /* Ensures images do not have any extra spaces */
+  margin: 0 auto; /* Centers images horizontally */
+}
+
+</style>
