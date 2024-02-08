@@ -61,7 +61,7 @@
       // Ensuring the navigation component never goes out of the screen & kind of stays in the middle
       const newY = Math.min(
         scrollPosition / ((maxScroll / window.innerHeight) * 3),
-        document.documentElement.clientHeight - floatNav.offsetHeight
+        document.documentElement.clientHeight - floatNav.offsetHeight,
       );
 
       gsap.to(floatNav, { y: newY, duration: 0.3 });

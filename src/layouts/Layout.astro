@@ -22,26 +22,26 @@ const { title } = Astro.props;
   // const layer = document.getElementById("layer") as HTMLDivElement;
 
   // body.addEventListener("mousemove", (e) => {
-    // const currentTime = Date.now();
-    // const deltaX = (e.pageX as number) - lastX;
-    // const deltaY = (e.pageY as number) - lastY;
-    // const deltaTime = currentTime - lastMoveTime;
+  // const currentTime = Date.now();
+  // const deltaX = (e.pageX as number) - lastX;
+  // const deltaY = (e.pageY as number) - lastY;
+  // const deltaTime = currentTime - lastMoveTime;
 
-    // const velocity = Math.sqrt(deltaX * deltaX + deltaY * deltaY) / deltaTime;
+  // const velocity = Math.sqrt(deltaX * deltaX + deltaY * deltaY) / deltaTime;
 
-    // const maxGradientSize = Math.max(window.innerWidth, window.innerHeight)/5;
-    // const minGradientSize = 50; // Adjust as needed
+  // const maxGradientSize = Math.max(window.innerWidth, window.innerHeight)/5;
+  // const minGradientSize = 50; // Adjust as needed
 
-    // const gradientSize = minGradientSize + (maxGradientSize - minGradientSize) * (1 - Math.min(1, velocity / lastVelocity));
+  // const gradientSize = minGradientSize + (maxGradientSize - minGradientSize) * (1 - Math.min(1, velocity / lastVelocity));
 
-    // body.style.setProperty("--centerX", `${e.pageX}px`);
-    // body.style.setProperty("--centerY", `${e.pageY}px`);
-    // layer.style.setProperty("--gradient-size", `${50}px`);
+  // body.style.setProperty("--centerX", `${e.pageX}px`);
+  // body.style.setProperty("--centerY", `${e.pageY}px`);
+  // layer.style.setProperty("--gradient-size", `${50}px`);
 
-    // lastX = e.pageX;
-    // lastY = e.pageY;
-    // lastMoveTime = currentTime;
-    // lastVelocity = velocity;
+  // lastX = e.pageX;
+  // lastY = e.pageY;
+  // lastMoveTime = currentTime;
+  // lastVelocity = velocity;
   // });
 </script>
 <html lang="en">
@@ -52,7 +52,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-      <ViewTransitions />
+    <ViewTransitions />
   </head>
   <body class="relative bg-dark-navy" transition:animate="slide">
     <Navbar />
@@ -61,18 +61,17 @@ const { title } = Astro.props;
     <!-- <Alert/> -->
     <slot />
     <Footer />
+    <style>
+      #layer {
+        z-index: -1000;
+        background: radial-gradient(
+          550px circle at var(--centerX) var(--centerY),
+          rgba(29, 32, 75, 0.5),
+          transparent var(--gradient-size, 0px)
+        );
+        opacity: 1;
+        transition: 500ms;
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  #layer {
-    z-index: -1000;
-    background: radial-gradient(
-      550px circle at var(--centerX) var(--centerY),
-      rgba(29, 32, 75, 0.5),
-      transparent var(--gradient-size, 0px)
-    );
-    opacity: 1;
-    transition: 500ms;
-  }
-</style>

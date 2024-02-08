@@ -6,11 +6,11 @@ tags:
   - React
   - solid
 ---
-> #### I'm pretty sure, as a software developer, you have a sound knowledge of solid principles and you always uses them in your code :) Just jokinggg!
+> #### I'm pretty sure, as a software developer, you have a sound knowledge of solid principles and you always use them in your code :) Just jokinggg!
 
 Ohh, It's about react! Gosh, we don't need those principles in react! do we?
 
-I myself have been working with react for more than two and half years. And also it happens that, i knew about  solid principles for more than 2 years. but it just happened like some months ago that i have been tryyying.. consciously to use them in my react code. And believe, it changed my code and alongside with my code structure.
+I myself have been working with react for more than two and half years. And also it happens that, i knew about  solid principles for more than 2 years. but it just happened like some months ago,from i have been tryyying.. consciously to use them in my react code. And believe ,e, it had changed my code structure.
 
 No more nonsense talk, just dive into main topic.😠.....oka oka..
 
@@ -22,7 +22,7 @@ Gonna be a boring article, let me get a coffee for you please...
 
 > ### 1. Single Responsibility Principle (SRP)
 
-A class should serve a single, clearly defined purpose, reducing the need for frequent changes.
+##### A class should serve a single, clearly defined purpose, reducing the need for frequent changes.
 
 We can implement the srp into our react code, by making sure that each component in our application has a specific, well-defined work to do. Likely, a component can be responsible for displaying a static part of a page, handling a user input or doing some fetch calls. By limiting and controlling the responsibility, we can improve the code quality , clarity and maintainability of our code-base.
 
@@ -30,48 +30,409 @@ We can implement the srp into our react code, by making sure that each component
 - Using composition will make sure reusable components will be able to build complex UI's.
 - Need to handle props and state wisely
 
-```
 We need to make our components small and do one single thing.
-```
 
 ```javascript
 import React, { useEffect, useState } from "react";
-import { View, Text, Image } from "react-native";
 import axios from "axios";
 
-const ListItems = () => {
- const [listItems, setListItems] = useState([]);
+const ListOfEmployees = () => {
+ const [employees, setEmployees] = useState([]);
  const [isLoading, setIsLoading] = useState(true);
 
  useEffect(() => {
-   axios.get("https://.../listitems/").then((res) => {
-       setListItems(res.data)
+   axios.get("https://.../employees/").then((res) => {
+       setEmployees(res.data)
    }).catch(e => {
-       errorToast(e.message);
+       console.log(e.message);
    }).finally(() => {
        setIsLoading(false);
    })
  }, [])
 
  if (isLoading){
+   return <p>Loading...</p>
+ }
+
+ return (
+   <section>
+       {employees.map(employee => {
+           return (
+               <article>
+                    <img src={{uri:employee.img}} />
+                    <p>{item.name}</p>
+                    <p>{item.description}</p>
+               </article>
+           )
+       })}
+   </section>
+ );
+};
+
+export default ListItems;
+```
+
+###### At first this component code may look like decent enough. But if we dive into the responsibility it has taken, we can easily look into the issues within it.
+
+1. Managing the state
+1. Making fetch calls to remote server
+1. Conditionally rendering the view
+
+So, in general, its clear that **ListOfEmployees** is not align with the SRP. In that case, we can try to refactor/rewrite this component.
+
+First we can pull out the code block that is responsible for the state management and fetch calls by creating a hook.
+
+```javascript
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const useFetchEmployees = () => {
+ const [employees, setEmployees] = useState([]);
+ const [isLoading, setIsLoading] = useState(true);
+
+useEffect(() => {
+   axios.get("https://.../employees/").then((res) => {
+       setEmployees(res.data)
+   }).catch(e => {
+       console.log(e.message);
+   }).finally(() => {
+       setIsLoading(false);
+   })
+ }, [])
+
+   return { listItems, isLoading };
+}
+```
+
+Now, the **ListOfEmployees looks like,**
+
+```javascript
+import { useFetchEmployees } from "hooks/useFetchEmployees";
+
+const ListItems = () => {
+ const { employees, isLoading } = useFetchEmployees();
+
+
+if (isLoading){
    return <Text>Loading...</Text>
  }
 
  return (
-   <View>
-       {listItems.map(item => {
+   <section>
+       {employees.map(employee => {
            return (
-               <View>
-                    <Image src={{uri:item.img}} />
-                    <Text>{item.name}</Text>
-                    <Text>{item.description}</Text>
-               </View>
+               <article>
+                    <img src={{uri:employee.img}} />
+                    <p>{item.name}</p>
+                    <p>{item.description}</p>
+               </article>
            )
        })}
-   </View>
+   </section>
  );
 };
 
 
 export default ListItems;
 ```
+
+Ohh, Now, this code looks more manageable,
+
+Opps, **useFetchEmployees doing two things at once**
+
+- Managing the state
+- Doing fetch calls
+
+So, SRP hasn't been maintained, we need do something about it.
+
+We can outsource the api call from **useFetchEmployees,**
+
+```javascript
+import axios from "axios";
+
+const fetchEmployees = () => {
+ return axios
+   .get("https://.../employees/")
+   .catch((e) => {
+     console(e.message);
+   })
+   .then((res) => res.data);
+};
+
+```
+
+And Now **useFetchEmployees** looks like,
+
+```javascript
+import { useEffect, useState } from "react";
+import { fetchEmployees } from "./api";
+
+const useFetchEmployees = () => {
+ const [employess, setEmployess] = useState([]);
+ const [isLoading, setIsLoading] = useState(true);
+
+ useEffect(() => {
+   fetchEmployees()
+     .then((listItems) => setEmployess(listItems))
+     .finally(() => setIsLoading(false));
+ }, []);
+
+
+ return { listItems, isLoading };
+};
+```
+
+OWW, everything got put into place. But need to remember, there are times, when SRP may be responsible for complexity than it solves. It's on our shoulder to make our code manageable and understandable.
+
+> ### **2. Open/Closed Principle (OCP)**
+
+##### *"Entitities (classes, modules, functions, etc.) should be open for extension but clossed for modification"*
+
+- Open for extension: it means we can add new behaviors, functionalities, and features to a component without having to change it's previous behaviours.
+- Closed for modifications: After we have created and implemented a component, we should avoid directly manipulating its source code.
+
+Lets take a look on this following example, that may clear it up,
+
+```javascript
+import React from 'react';
+
+interface IListItem {
+  title: string;
+  image: string;
+  isAuth: boolean;
+  onClickMember: () => void;
+  onClickGuest: () => void;
+}
+
+const ListItem: React.FC<ILıstItem> = ({ title, image, isAuth, onClickMember, onClickGuest }: IListItem) => {
+  const handleMember = () => {
+    // Some logic
+    onClickMember();
+  };
+
+  const handleGuest = () => {
+    // Some logic
+    onClickGuest();
+  };
+  return (
+    <article>
+      <img source={{uri:image}} />
+      <p>{title}</p>
+      {
+      isAuth ? 
+           <button onClick={handleMember}>Add to cart +</button> :
+               <button onClick={handleGuest}>Show Modal</button>
+       }
+    </article>
+  );
+};
+
+```
+
+As we can see, the code  does not fit with the OCP. It violets by rendering different features depending on Authentication status.
+
+We need to refactor this component,
+
+```javascript
+interface IButtonHandler {
+  handle(): void;
+}
+
+export const GuestButtonHandler: React.FC<{ onClickGuest?: () => void }> = ({ onClickGuest }) => {
+  const handle = () => {
+    // Some logic for guests
+    onClickGuest();
+  };
+
+  return <Button onClick={handle}>Show Modal</Button>;
+};
+
+export const MemberButtonHandler: React.FC<{ onClickMember?: () => void }> = ({ onClickMember }) => {
+  const handle = () => {
+    // Some logic for members
+    onClickMember();
+  };
+
+  return <button onClick={handle}>Add to cart +</button>;
+};
+```
+
+```javascript
+import React from 'react';
+
+interface IListItem {
+  title: string;
+  image: string;
+}
+
+export const ListItem: React.FC<IListItem> = ({ title, image, children}) => {
+
+  return (
+    <article>
+      <img source={{ uri: image }} />
+      <p>{title}</p>
+      {children}
+    </article>
+  );
+};
+
+export default ListItem;
+```
+
+and finally, we got rid of the unnecessary codes and create new props which is&nbsp;`children`&nbsp;so the other component can extend this component by passing it as a child. Now our ListItem component will be&nbsp;**Open**&nbsp;for extension and&nbsp;**Closed**&nbsp;for modification.
+
+> ### **3. Liskov Substitution Principle (LSP)**
+
+##### *"The behavior of the superclass should be preserved when substituted with an object of its subclass"*
+
+By adhering with LSP, we can ensure that your code remains modular, flexible, and maintainable, as it allows for polymorphism and promotes the reuse of code.
+
+```javascript
+const SuccessButton = () => {
+  return (
+      <p>Success</p>
+  );
+};
+```
+
+So we want to create a&nbsp;**`SuccessButton`**&nbsp;component but a button functionality couldn't be replaced by a&nbsp;'p'&nbsp;so this violates the principle. What we should do instead is just return a button like this:
+
+```javascript
+const SuccessButton = () => {
+  return (
+    <button style={styles.button} onPress={onPress}>
+      <p>Success</p>
+    </button>
+  );
+};
+```
+
+This is better but it is not enough. We also should inherit all the features of the button itself:
+
+```javascript
+const SuccessButton = () => {
+  return (
+    <button style={styles.button} onPress={onPress}  {…props}>
+      <p>Success</p>
+    </button>
+  );
+};
+```
+
+Now we inherited all of the attributes of the button and we pass the attributes to the new button. Also, any instance of SuccessButton can still be used in place of an instance of Button without changing the program’s behavior and following the&nbsp;**LSP.**
+
+---
+
+> ### **4. Interface Segregation Principle (ISP)**
+
+##### ''N*o code should be forced to depend on methods it does not use”*[*\**](https://en.wikipedia.org/wiki/Interface_segregation_principle#cite_note-ASD-1)*.&nbsp;For React applications, we will rephrase it as&nbsp;“components should not depend on props they don’t use."*
+
+No Talk, better, Look into an example snippet
+
+```javascript
+const ListItem = ({item}) => {
+
+  return (
+    <article>
+      <img source={{uri:item.image}} />
+      <p>{item.title}</p>
+      <p>{item.description}</p>
+    </article>
+  );
+};
+```
+
+We have a&nbsp;**`ListItem`**&nbsp;component which only needs a few data from the item prop, but, we end up giving it more than the component actually needs because the`item`&nbsp;props itself might contain data that the component doesn’t need
+
+To solve this problem we may limit the props to only what the component needs,
+
+```javascript
+const ListItem = ({image, title, description}) => {
+
+  return (
+    <View>
+      <img source={{uri:image}} />
+      <p>{title}</p>
+      <p>{description}</p>
+    </View>
+  );
+};
+```
+
+&nbsp;And now our component is compatible with the&nbsp;**ISP**&nbsp;principle.
+
+> ### **5. Dependency Inversion Principle (DIP)**
+
+##### *"High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces). And abstractions should not depend on details. Details (concrete implementations) should depend on abstractions"*
+
+In the context of React, this principle ensures high-level components should not directly depend on low-level components, but both should depend on a common abstraction. In this case, “component” refers to any part of the application, whether it’s a React component, a function, a module, a class-based component, or a third-party library. Lets see with examples:
+
+```javascript
+const CreateListItemForm = () => {
+  const handleCreateListItemForm = async (e) => {
+    try {
+      const formData = new FormData(e.currentTarget);
+      await axios.post("https://myapi.com/listItems", formData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  return (
+    <form onSubmit={handleCreateListItemForm}>
+      <input name="title" />
+      <input name="description" />
+      <input name="image" />
+    </form>
+  );
+};
+```
+
+The component above shows a form for handling creating a list item by rendering a form and sending the submitted data to an API.
+
+Consider this scenario. There’s another form for editing a list item with the same UI but differing only in terms of logic(in our example it is an API endpoint). Our form would be unreusable since we need another endpoint to submit our edit form. Therefore, we need to create a component that isn’t dependent on a specific low-level module.
+
+```javascript
+const ListItemForm = ({ onSubmit }) => {
+  return (
+    <form onSubmit={onSubmit}>
+      <input name="title" />
+      <input name="description" />
+      <input name="image" />
+    </form>
+  );
+};
+```
+
+We have removed the dependency from the form and now we can give it the necessary logic through props.
+
+```javascript
+const CreateListItemForm = () => {
+  const handleCreateListItem = async (e) => {
+    try {
+      const formData = new FormData(e.currentTarget);
+      await axios.post("https://myapi.com/listItems", formData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  return <ListItemForm onSubmit={handleCreateListItem} />;
+};
+```
+
+```javascript
+const EditListItemForm = () => {
+  const handleEditListItem = async (e) => {
+    try {
+      // Editing logic
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  return <ListItemForm onSubmit={handleEditListItem} />;
+};
+```
+
+By applying the DIP, we can test each component separately without being concerned about affecting other connected parts.
+
+##### I tried to explain the **** ***S.O.L.I.D in the context of react code. Hope it helped you :)***😃😃

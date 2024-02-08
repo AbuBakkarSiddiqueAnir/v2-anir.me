@@ -15,16 +15,17 @@ const { project } = Astro.props;
   </div>
 
   <div class="project-content relative w-full pt-4 md:w-[40%]">
-    
     <h5 class="heading-md mb-2 text-end text-h-md font-medium text-[#fff]">
       {project.title}
-      <p class="text-[0.8rem] leading-3 text-green/80 font-extralight">(Featured)</p>  
+      <p class="text-[0.8rem] font-extralight leading-3 text-green/80">
+        (Featured)
+      </p>
     </h5>
-    
+
     <div
       class="left-[-20%] top-[27%] bg-light-navy text-navy shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] md:absolute"
     >
-      <div class="relative z-20 px-2 py-4 min-h-[8rem]">
+      <div class="relative z-20 min-h-[8rem] px-2 py-4">
         <p class="mb-4 text-end text-b-3 text-lightest-slate">
           {project.description}
         </p>
@@ -41,16 +42,19 @@ const { project } = Astro.props;
     </div>
     <div class="mt-4 flex justify-end gap-3 md:mt-40">
       {
-        project.github &&   <a target="_blank" href={project.github}>
-        <img src="/icons/github.svg" class="w-5" alt="" />
-      </a>
+        project.github && (
+          <a target="_blank" href={project.github}>
+            <img src="/icons/github.svg" class="w-5" alt="" />
+          </a>
+        )
       }
-    {
-      project.live &&   <a target="_blank" href={project.live}>
-        <img class="w-5" src="/icons/externalLink.svg" alt="" />
-      </a>
-    }
-    
+      {
+        project.live && (
+          <a target="_blank" href={project.live}>
+            <img class="w-5" src="/icons/externalLink.svg" alt="" />
+          </a>
+        )
+      }
     </div>
   </div>
 </div>

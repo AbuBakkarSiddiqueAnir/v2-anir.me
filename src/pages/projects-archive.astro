@@ -16,7 +16,7 @@ const projects = [
     made_at: "Otterdev",
     built_with: ["Astro", "Svelte", "Sanity", "Gsap"],
     external_link: "otterdev.io",
-    github:null
+    github: null,
   },
   {
     id: "anytech",
@@ -25,34 +25,34 @@ const projects = [
     made_at: "Otterdev",
     built_with: ["Astro", "Svelte", "Sanity", "Gsap"],
     external_link: "anytech.com",
-    github:null
+    github: null,
   },
-    {
+  {
     id: "capsho",
     year: "2023",
     title: "Capsho webapp",
     made_at: "Otterdev",
     built_with: ["Nextjs", "Nestjs"],
     external_link: null,
-    github:null
+    github: null,
   },
-    {
+  {
     id: "Ambulance",
     year: "2023",
     title: "Ambulance",
     made_at: "Coredevs",
-    built_with: ["ReactJs","Tailwind", "Express", "MongoDb",  "Mysql"],
+    built_with: ["ReactJs", "Tailwind", "Express", "MongoDb", "Mysql"],
     external_link: null,
-    github:null
+    github: null,
   },
   {
     id: "finace-charts",
     year: "2022",
     title: "Finance Charts",
     made_at: "Home",
-    built_with: ["React", "Typescript", "Scss", 'Expressjs'],
+    built_with: ["React", "Typescript", "Scss", "Expressjs"],
     external_link: "https://finance-charts.vercel.app",
-    github:'https://github.com/AbuBakkarSiddiqueAnir/Finance-Charts'
+    github: "https://github.com/AbuBakkarSiddiqueAnir/Finance-Charts",
   },
   {
     id: "phantomtyper",
@@ -61,79 +61,78 @@ const projects = [
     made_at: "Home",
     built_with: ["React", "Tailwind"],
     external_link: "https://phantomtyper.netlify.app",
-    github:'https://github.com/AbuBakkarSiddiqueAnir/phantomtyper_1.0'
+    github: "https://github.com/AbuBakkarSiddiqueAnir/phantomtyper_1.0",
   },
-   {
+  {
     id: "PhantomShare",
     year: "2022",
     title: "PhantomShare",
     made_at: "Home",
-    built_with: ["React", "Scss",'Sanity'],
+    built_with: ["React", "Scss", "Sanity"],
     external_link: "https://phantomtyper.netlify.app",
-    github:'https://github.com/AbuBakkarSiddiqueAnir/PhantomImageShare'
+    github: "https://github.com/AbuBakkarSiddiqueAnir/PhantomImageShare",
   },
-    
-   {
+
+  {
     id: "V3R2T",
     year: "2022",
     title: "V3R2T",
     made_at: "Home",
-    built_with: ["React", 'Tailwind'],
+    built_with: ["React", "Tailwind"],
     external_link: null,
-    github:'https://github.com/AbuBakkarSiddiqueAnir/v3r2t-boilerplate'
+    github: "https://github.com/AbuBakkarSiddiqueAnir/v3r2t-boilerplate",
   },
-     {
+  {
     id: "Ezytor",
     year: "2022",
     title: "Ezytor",
     made_at: "Uihut",
-    built_with: ["React", 'Tailwind',"Laravel"],
-    external_link: 'https://ezytor.com',
+    built_with: ["React", "Tailwind", "Laravel"],
+    external_link: "https://ezytor.com",
   },
-       {
+  {
     id: "Graphicsly",
     year: "2022",
     title: "Graphicsly",
     made_at: "Uihut",
-    built_with: ["React", 'Tailwind',"Laravel"],
-    external_link: 'https://wordpress.com/plugins/graphicsly',
+    built_with: ["React", "Tailwind", "Laravel"],
+    external_link: "https://wordpress.com/plugins/graphicsly",
   },
-  
-    {
+
+  {
     id: "Flowgiri-extension",
     year: "2022",
     title: "Flowgiri extension",
     made_at: "Uihut",
-    built_with: ["React", 'Tailwind',"Laravel"],
-    external_link: 'https://chromewebstore.google.com/detail/flowgiri-webflow-chrome-e/pdfpadfnpoamcfdbmheheaecihhhobbp',
+    built_with: ["React", "Tailwind", "Laravel"],
+    external_link:
+      "https://chromewebstore.google.com/detail/flowgiri-webflow-chrome-e/pdfpadfnpoamcfdbmheheaecihhhobbp",
   },
-    {
+  {
     id: "Flowgiri",
     year: "2022",
     title: "Flowgiri",
     made_at: "Uihut",
-    built_with: ["React", 'Tailwind','Blade',"Laravel"],
-    external_link: 'https://flowgiri.com',
+    built_with: ["React", "Tailwind", "Blade", "Laravel"],
+    external_link: "https://flowgiri.com",
   },
-    {
+  {
     id: "Uihut",
     year: "2022",
     title: "Uihut",
     made_at: "Uihut",
-    built_with: ["NuxtJs","Scss","AdonisJs"],
-    external_link: 'https://uihut.com',
+    built_with: ["NuxtJs", "Scss", "AdonisJs"],
+    external_link: "https://uihut.com",
   },
-      {
+  {
     id: "Consle",
     year: "2022",
     title: "Console",
     made_at: "Uihut",
-    built_with: ["Nextjs","tailwind"],
-    external_link: 'https://www.console.xyz',
+    built_with: ["Nextjs", "tailwind"],
+    external_link: "https://www.console.xyz",
   },
 ];
-
-
 ---
 
 <Layout title="Project archive">
@@ -208,37 +207,36 @@ const projects = [
                 </td>
                 <td class="hidden py-4 align-top sm:table-cell">
                   <ul class="trantransparent-y-1">
-                    {
-                      project.external_link &&     <li class="mb-1 flex items-center">
-                      <a
-                        class="text-transparent-400 group/link inline-flex items-baseline text-sm text-sm font-medium leading-tight text-white hover:text-teal-300 hover:text-white focus-visible:text-teal-300 focus-visible:text-teal-300"
-                        href="https://www.emersoncollective.com/"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label="emersoncollective.com (opens in a new tab)"
-                      >
-                        <span>
-                          <span class="inline-block">
-                            {project.title}
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              class="group-hover/link:-trantransparent-y-1 group-hover/link:trantransparent-x-1 group-focus-visible/link:-trantransparent-y-1 group-focus-visible/link:trantransparent-x-1 ml-0.5 inline-block h-4 w-4 shrink-0 transition-transform motion-reduce:transition-none"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
+                    {project.external_link && (
+                      <li class="mb-1 flex items-center">
+                        <a
+                          class="text-transparent-400 group/link inline-flex items-baseline text-sm text-sm font-medium leading-tight text-white hover:text-teal-300 hover:text-white focus-visible:text-teal-300 focus-visible:text-teal-300"
+                          href="https://www.emersoncollective.com/"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label="emersoncollective.com (opens in a new tab)"
+                        >
+                          <span>
+                            <span class="inline-block">
+                              {project.title}
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="group-hover/link:-trantransparent-y-1 group-hover/link:trantransparent-x-1 group-focus-visible/link:-trantransparent-y-1 group-focus-visible/link:trantransparent-x-1 ml-0.5 inline-block h-4 w-4 shrink-0 transition-transform motion-reduce:transition-none"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                  clip-rule="evenodd"
+                                />
+                              </svg>
+                            </span>
                           </span>
-                        </span>
-                      </a>
-                    </li>
-                    }
-                
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 </td>
               </tr>

@@ -1,103 +1,188 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-// import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('articles');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const blogEntries = await getCollection("articles");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-console.log(entry)
+console.log(entry);
 const { Content } = await entry.render();
 ---
-<Layout title={entry.data.title}>
-  <section class="bg-dark-navy relative">
- <div class="article  text-white p-6 max-w-[40rem] mx-auto">
-      <h1 class="text-4xl font-bold text-center">{entry.data.title}</h1>
-      <h2 class="text-lg text-right">{entry.data.date}</h2>
-      <img src={entry.data.heroImage} alt="Hero Image" class="my-6 mx-auto max-h-[20rem] max-w-full" />
-      <div class="mx-auto flex gap-2 mb-3">
-        {entry.data.tags.map((tag:any )=> (
-          <span  class="rounded-md bg-[rgba(45,212,191,.1)] px-2  py-1 text-b-3 text-green">{tag}</span>
-        ))}
-      </div>
-      <Content />
 
+<script>
+  import html2canvas from "html2canvas";
+
+  const takeScreenshot = (node: HTMLElement) => {
+    html2canvas(node).then((canvas) => {
+      var imgData = canvas.toDataURL("image/png");
+
+      var link = document.createElement("a");
+      link.href = imgData;
+      link.download = "post.png";
+      link.click();
+      alert("Screenshot has been taken!");
+    });
+  };
+  const copyPost = () => {
+    let tempDiv = document.createElement("div");
+
+    let postContent = (
+      document.getElementById("blogPostContent") as HTMLElement
+    ).cloneNode(true);
+
+    tempDiv.appendChild(postContent);
+
+    document.body.appendChild(tempDiv);
+
+    let range = document.createRange();
+    range.selectNode(tempDiv);
+    window.getSelection()?.removeAllRanges();
+    window.getSelection()?.addRange(range);
+
+    document.execCommand("copy");
+
+    document.body.removeChild(tempDiv);
+
+    window.getSelection()?.removeAllRanges();
+
+    alert("Post copied to clipboard!");
+  };
+
+  (document.getElementById("copyButton") as HTMLButtonElement).addEventListener(
+    "click",
+    copyPost,
+  );
+  (
+    document.getElementById("takeScreenshotButton") as HTMLButtonElement
+  ).addEventListener("click", () =>
+    takeScreenshot(document.getElementById("blogPostContent") as HTMLElement),
+  );
+</script>
+<Layout title={entry.data.title}>
+  <section class="relative bg-dark-navy">
+    <div
+      class="fixed right-10 top-[14%] flex flex-col gap-2 rounded-md bg-stone-900 p-1"
+    >
+      <button
+        class="rounded-md border border-green/20 px-1.5 py-1 text-[0.7rem] text-green/70 transition-all duration-300 hover:bg-lime-300/45 hover:text-dark-navy"
+        id="copyButton">Copy The Article</button
+      >
+      <button
+        class="rounded-md border border-green/20 px-1.5 py-1 text-[0.7rem] text-green/70 transition-all duration-300 hover:bg-lime-300/45 hover:text-dark-navy"
+        id="takeScreenshotButton">Take Screenshot</button
+      >
+    </div>
+    <div
+      class="article mx-auto max-w-[45rem] p-6 text-white"
+      id="blogPostContent"
+    >
+      <h1 class="text-center text-4xl font-bold">{entry.data.title}</h1>
+      <img
+        src={entry.data.heroImage}
+        alt="Hero Image"
+        class="mx-auto my-6 max-h-[20rem] max-w-full"
+      />
+      <div class="flex justify-between">
+        <div class="mb-3 flex gap-2">
+          {
+            entry.data.tags.map((tag: any) => (
+              <span class="flex  items-center rounded-md  bg-[rgba(45,212,191,.1)] px-2 py-1 text-b-3 leading-3 text-green">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+        <p
+          class="max-w-max rounded-md border-b border-green/50 p-2 text-right text-b-3 leading-3"
+        >
+          {entry.data.date}
+        </p>
+      </div>
+
+      <Content />
     </div>
   </section>
-
 </Layout>
 
-
 <style is:inline>
-  pre{
+
+  blockquote{
+    border-left: 5px solid #333;
+    padding-left: 1em;
+  }
+  pre {
     font-size: 0.8rem;
-    padding:1rem;
+    margin: 1em 0em;
+    padding: 1rem;
     background-color: #202020;
   }
-  ol{
-    list-style: initial;
+  ol {
+    list-style: number;
+    padding-left: 1em;
+    margin: 1em 0;
   }
-/* Headings */
-h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
+  li {
+    font-weight: 600;
+  }
+  /* Headings */
+  h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
 
-h2 {
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
 
-h3 {
-  font-size: 1.8em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
+  h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
 
-h4 {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
+  h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
 
-h5 {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
+  h5 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
 
-h6 {
-  font-size: 1em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
+  h6 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
 
-p {
-  font-size: 1em;
-  line-height: 1.4;
-  margin-bottom: 1em;
-}
+  p {
+    font-size: 1em;
+    line-height: 1.4;
+    margin-bottom: 1em;
+  }
 
-/* Span */
-span {
-  font-weight: bold; /* Example styling */
-  color: #333; /* Example styling */
-}
+  span {
+    font-weight: bold;
+    color: #333; 
+  }
 
-/* Images */
-img {
-  max-width: 20em;
-  margin: 2em 0;
-  height: auto;
-  display: block; /* Ensures images do not have any extra spaces */
-  margin: 0 auto; /* Centers images horizontally */
-}
-
+  img {
+    max-width: 20em;
+    margin: 2em 0;
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+  }
 </style>

@@ -2,7 +2,7 @@ import { config, fields, collection } from "@keystatic/core";
 
 export default config({
   ui: {
-    brand: { name: "Anir.me" },
+    brand: { name: "aanir.com" },
   },
   // storage: {
   //   kind: "github",

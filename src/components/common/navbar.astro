@@ -54,8 +54,9 @@ import { config } from "../../configurations/config";
   <div class="flex items-center justify-between gap-x-8">
     <div>
       <!-- <Logo/> -->
-      <a href="/"> <h4 class="text-h-lg leading-8 text-lightest-slate">Anir</h4></a>
-     
+      <a href="/">
+        <h4 class="text-h-lg leading-8 text-lightest-slate">Anir</h4></a
+      >
     </div>
     <ul
       id="nav-links-cotainer"
@@ -65,7 +66,9 @@ import { config } from "../../configurations/config";
         config.navLinks.map((link) => (
           <li class="inter nav-link  font-light  text-light-slate transition-colors hover:text-green">
             {" "}
-            <a data-astro-history='push' href={link.url}>{link.name}</a>
+            <a data-astro-history="push" href={link.url}>
+              {link.name}
+            </a>
           </li>
         ))
       }
