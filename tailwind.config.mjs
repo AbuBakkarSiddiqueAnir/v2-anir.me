@@ -99,7 +99,7 @@ export default {
           },
         ],
         "h-md": [
-          "clamp(0.8rem, 1.2vw + 0.7rem, 1.7rem)",
+          "clamp(1.2rem, 1.2vw + 1.2rem, 1.7rem)",
           {
             lineHeight: "125%",
             fontWeight: "400",

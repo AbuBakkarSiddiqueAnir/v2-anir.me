@@ -5,32 +5,41 @@ const projects = [
     title: "Otterdev ",
     thumbnail: "/projects/otterdev/otterdev2.png",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat velit laborum amet fugit nihil quas eaque qui libero reprehenderit similique consectetur ex obcaecati laudantium, iusto exercitationem atque doloremque labore. Odio!",
+      "Otterdev.io is the offical webstie for otterdev. This is a elegant website to attracts clients, who wanna build products that aligns with otterdev expertise. This website is animated with scroll triggering options.",
     technologies: ["Astro", "Svelte", "Sanity", "Gsap"],
     github: null,
-    live: "otterdev.io",
+    live: "https://otterdev.io",
+  },
+    {
+    title: "Offgears",
+    thumbnail: "/projects/offgears/offgears.png",
+    description:
+      "Offgears is a ecommerce platform that does bike parts imports, exports businesses. This is a elegant website to attracts buyers of bike parts.",
+    technologies: ["Nextjs", "Laravel"],
+    github: null,
+    live: "https://offgears.com",
   },
   {
     title: "Anytech ",
     thumbnail: "/projects/otterdev/anytech.png",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat velit laborum amet fugit nihil quas eaque qui libero reprehenderit similique consectetur ex obcaecati laudantium, iusto exercitationem atque doloremque labore. Odio!",
+      "Anytech is multinational finance solution company that works to automate the finance processing all over the world, anytech.com is the official website of the Anytech company",
     technologies: ["Astro", "Svelte", "Sanity", "Gsap"],
     github: null,
-    live: "otterdev.io",
+    live: "https://anytxn.com/en",
   },
   {
     title: "Ezytor",
     thumbnail: "/projects/uihut/ezytor.png",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat velit laborum amet fugit nihil quas eaque qui libero reprehenderit similique consectetur ex obcaecati laudantium, iusto exercitationem atque doloremque labore. Odio!",
-    technologies: ["React", "Laravel", "Blade"],
+      "Ezytor is a website editor, that has lots of prebuild html, css templates. A user can chosse his/her own theme/templates and edit it and build an website from it with less time.",
+    technologies: ["React", "Laravel", "Blade", "S3"],
     github: null,
-    live: "otterdev.io",
+    live: "https://ezytor.com",
   },
 ];
 ---
 
-<div class="card-container inter mb-16 mt-16 flex flex-col gap-y-12">
+<div class="card-container inter mb-12 flex flex-col gap-y-12">
   {projects.map((project) => <Project {project} />)}
 </div>

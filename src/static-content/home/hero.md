@@ -5,7 +5,7 @@ name: Abu Bakkar Anir.
 
 subtitle: I build things for the web.
 
-description: I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products at my home.
+description: I’m a software engineer specializing in frontend technologies (and occasionally doing the apis) for exceptional digital experiences. I’m focused on building products that are widely accessible, human-centered.
 
 actionText: Connect On LinkedIn
 

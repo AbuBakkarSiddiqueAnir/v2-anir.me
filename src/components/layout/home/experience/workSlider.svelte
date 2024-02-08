@@ -8,13 +8,13 @@
       position: "Frontend Developer",
       company: "Otterdev",
       location: "Singapore/Remote",
-      period: "05/2023 - Currently Working",
+      period: "01/2023 - 02/2024",
       whatIDid: "",
       projects: [
         {
           name: "Otterdev Official Website",
           technologies: ["Astro", "Svelte", "ReactJS", "Sanity", "GSAP"],
-          link: "",
+          link: "otterdev.io",
         },
         {
           name: "Anytech Website",
@@ -23,22 +23,22 @@
         },
       ],
     },
-    {
-      index: 1,
-      position: "Mern Stack Developer",
-      company: "Coredevs",
-      location: "Bangladesh/Hybrid",
-      period: "2/2023 - 4/2023",
-      whatIDid: "",
-      projects: [
-        {
-          name: "Realtime Ambulance Management System",
-          technologies: ["ReactJS", "Express", "MongoDB", "RestAPI"],
+    // {
+    //   index: 1,
+    //   position: "Mern Stack Developer",
+    //   company: "Coredevs",
+    //   location: "Bangladesh/Hybrid",
+    //   period: "2/2023 - 4/2023",
+    //   whatIDid: "",
+    //   projects: [
+    //     {
+    //       name: "Realtime Ambulance Management System",
+    //       technologies: ["ReactJS", "Express", "MongoDB", "RestAPI"],
 
-          link: "",
-        },
-      ],
-    },
+    //       link: "",
+    //     },
+    //   ],
+    // },
     {
       index: 2,
       position: "Software Developer",
@@ -97,7 +97,7 @@
 <svelte:window bind:innerWidth />
 <div
   id="work_carousel"
-  class="inter relative mx-auto flex w-full flex-col gap-3 md:flex-row"
+  class="inter relative mx-auto flex w-full flex-col gap-x-3 md:flex-row"
 >
   <Navigation {workExperience} {scrollToSpecificCompany} {activeSlideIndex} />
 
