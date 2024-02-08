@@ -90,6 +90,6 @@
     color: rgb(0, 0, 0);
   }
   .bg-active {
-    background-color: rgb(177, 231, 231);
+    background-color: rgba(230, 243, 243, 0.4);
   }
 </style>

@@ -4,6 +4,7 @@ import Footer from "../components/common/footer.astro";
 import HashLink from "../components/common/hash-link/hashLink.svelte";
 import "../styles/global-style.css";
 import { ViewTransitions } from "astro:transitions";
+// import Alert from "@/components/common/alert/alert.astro";
 interface Props {
   title: string;
 }
@@ -12,14 +13,36 @@ const { title } = Astro.props;
 ---
 
 <script>
-  const body = document.querySelector("body") as HTMLBodyElement;
-  body.addEventListener("mousemove", (e) => {
-    const x = (e as MouseEvent).clientX;
-    const y = (e as MouseEvent).clientY;
+  // let lastX = 0;
+  // let lastY = 0;
+  // let lastMoveTime = Date.now();
+  // let lastVelocity = 0;
 
-    body.style.setProperty("--centerX", `${x}px`);
-    body.style.setProperty("--centerY", `${y}px`);
-  });
+  // const body = document.querySelector("body") as HTMLBodyElement;
+  // const layer = document.getElementById("layer") as HTMLDivElement;
+
+  // body.addEventListener("mousemove", (e) => {
+    // const currentTime = Date.now();
+    // const deltaX = (e.pageX as number) - lastX;
+    // const deltaY = (e.pageY as number) - lastY;
+    // const deltaTime = currentTime - lastMoveTime;
+
+    // const velocity = Math.sqrt(deltaX * deltaX + deltaY * deltaY) / deltaTime;
+
+    // const maxGradientSize = Math.max(window.innerWidth, window.innerHeight)/5;
+    // const minGradientSize = 50; // Adjust as needed
+
+    // const gradientSize = minGradientSize + (maxGradientSize - minGradientSize) * (1 - Math.min(1, velocity / lastVelocity));
+
+    // body.style.setProperty("--centerX", `${e.pageX}px`);
+    // body.style.setProperty("--centerY", `${e.pageY}px`);
+    // layer.style.setProperty("--gradient-size", `${50}px`);
+
+    // lastX = e.pageX;
+    // lastY = e.pageY;
+    // lastMoveTime = currentTime;
+    // lastVelocity = velocity;
+  // });
 </script>
 <html lang="en">
   <head>
@@ -35,6 +58,7 @@ const { title } = Astro.props;
     <Navbar />
     <!-- <div id="layer" class="absolute inset-0"></div> -->
     <HashLink client:idle />
+    <!-- <Alert/> -->
     <slot />
     <Footer />
   </body>
@@ -42,14 +66,13 @@ const { title } = Astro.props;
 
 <style>
   #layer {
-    z-index: 1000;
+    z-index: -1000;
     background: radial-gradient(
       550px circle at var(--centerX) var(--centerY),
-      rgba(29, 32, 75, 0.7),
-      transparent 40%
+      rgba(29, 32, 75, 0.5),
+      transparent var(--gradient-size, 0px)
     );
-    z-index: 3;
     opacity: 1;
-    transition: opacity 500ms;
+    transition: 500ms;
   }
 </style>
