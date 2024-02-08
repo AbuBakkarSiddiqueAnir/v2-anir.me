@@ -20,6 +20,10 @@ export default config({
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
+        short: fields.text({
+          label: "Quote",
+          multiline: true,
+        }),
         date: fields.date({
           label: "Article date",
           description: "The date of the article published",
