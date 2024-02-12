@@ -1,0 +1,111 @@
+---
+title: Linux Commands Every Linux User Should Know
+short: >-
+  Linux commands form the foundation of navigating and managing a Linux-based
+  operating system. Whether you're a beginner or a seasoned user, understanding
+  these commands is crucial for efficient system administration,
+  troubleshooting, and everyday tasks. 
+date: '2024-02-15'
+heroImage: /images/hero/linux-commands-every-linux-user-should-know/heroImage.jpg
+tags:
+  - 'linux '
+  - commands
+  - Bash
+---
+Linux commands form the foundation of navigating and managing a Linux-based operating system. Whether you're a beginner or a seasoned user, understanding these commands is crucial for efficient system administration, troubleshooting, and everyday tasks. In this blog post, we'll explore some of the most common and essential Linux commands that every user should know.
+
+> **ls** - List Directory Contents:
+
+The **`ls`** command is used to list the contents of a directory. By default, it displays the files and directories in the current working directory.
+
+```bash
+ls
+ls -l
+ls -a
+```
+
+The **`-l`** flag provides a detailed listing, while the **`-a`** flag shows hidden files as well.
+
+> **cd** - Change Directory:
+
+The **`cd`** command is used to change the current working directory. You can move to a specific directory by providing its path as an argument.
+
+```bash
+cd /path/to/directory
+cd ..
+cd ~
+
+```
+
+The **`..`** moves you one directory up, and **`~`** represents the home directory.
+
+> **pwd** - Print Working Directory:
+
+The **`pwd`** command prints the path of the current working directory. It's useful for identifying your current location within the filesystem.
+
+> **mkdir** - Make Directory:
+
+The **`mkdir`** command is used to create a new directory. Simply specify the name of the directory you want to create.
+
+```bash
+mkdir new_directory
+```
+
+> **rm** - Remove
+
+The **`rm`** command is used to remove files or directories. Be cautious when using this command, as deleted files are not typically recoverable. To remove a file:
+
+```bash
+rm filename
+```
+
+To remove a directory and its contents recursively:
+
+```bash
+rm -r directory_name
+```
+
+> **cp** - Copy:
+
+The **`cp`** command is used to copy files or directories from one location to another. Specify the source file/directory and the destination
+
+```
+cp source_file destination_file
+cp -r source_directory destination_directory
+```
+
+> **mv** - Move:
+
+The **`mv`** command is used to move or rename files and directories. It's also used to move files from one directory to another.
+
+```bash
+mv filename new_location
+mv old_filename new_filename
+```
+
+> **cat** - Concatenate and Display Files:
+
+The **`cat`** command is used to display the contents of a file. It can also be used to concatenate multiple files and display the output.
+
+```bash
+cat filename
+cat file1 file2 > combined_file
+```
+
+> **grep** - Search Text:
+
+The **`grep`** command is used to search for specific text patterns within files. It's a powerful tool for filtering output
+
+```bash
+grep "pattern" filename
+```
+
+> **chmod** - Change Mode:
+
+The **`chmod`** command is used to change the permissions of files and directories. It allows you to control who can read, write, or execute a file.
+
+```bash
+chmod 755 filename
+```
+
+These common Linux commands provides a solid foundation for navigating and managing a Linux system. While there are many more commands and options available, these basics will serve you well in your journey with Linux
