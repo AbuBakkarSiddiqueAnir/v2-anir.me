@@ -7,6 +7,21 @@ const allPosts = await getCollection("articles");
 
 ---
 
+<script>
+  import { gsap } from "gsap";
+
+import  { createTimeline, fadeInAndSlideInFromX } from "@/helper/gsap";
+
+gsap.utils.toArray('.blog-card').forEach((blogCard, i) => {
+  const tl = createTimeline(blogCard as HTMLElement);
+
+    tl.add(
+      fadeInAndSlideInFromX(blogCard as HTMLElement, 300 , (0.5 * (i+1))/2)
+    )
+  })
+  
+</script>
+
 <Layout title="Articles">
   <main class="w-full bg-dark-navy">
     <section
