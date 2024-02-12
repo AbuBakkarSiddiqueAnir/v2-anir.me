@@ -16,7 +16,7 @@
         on:click={() => scrollToSpecificCompany(page.index)}
         class={twJoin(
           "group z-10 overflow-hidden border border-y-green-tint px-3 py-2 text-b-3 font-semibold",
-          page.index === activeSlideIndex && "text-green"
+          page.index === activeSlideIndex && "text-green",
         )}
       >
         {page.company}

@@ -4,22 +4,20 @@ import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("articles");
-
 ---
 
 <script>
   import { gsap } from "gsap";
 
-import  { createTimeline, fadeInAndSlideInFromX } from "@/helper/gsap";
+  import { createTimeline, fadeInAndSlideInFromX } from "@/helper/gsap";
 
-gsap.utils.toArray('.blog-card').forEach((blogCard, i) => {
-  const tl = createTimeline(blogCard as HTMLElement);
+  gsap.utils.toArray(".blog-card").forEach((blogCard, i) => {
+    const tl = createTimeline(blogCard as HTMLElement);
 
     tl.add(
-      fadeInAndSlideInFromX(blogCard as HTMLElement, 300 , (0.5 * (i+1))/2)
-    )
-  })
-  
+      fadeInAndSlideInFromX(blogCard as HTMLElement, 300, (0.5 * (i + 1)) / 2),
+    );
+  });
 </script>
 
 <Layout title="Articles">

@@ -5,22 +5,17 @@ import IndividualProjectsContainer from "./IndividualProjectsContainer.astro";
 <script>
   import { gsap } from "gsap";
 
-import { createTimeline,fadeInAndSlideIn } from "@/helper/gsap";
+  import { createTimeline, fadeInAndSlideIn } from "@/helper/gsap";
 
   const tl2 = createTimeline("#project-title-1");
 
- 
-
   tl2.add(fadeInAndSlideIn("#project-title-1", 100));
 
+  gsap.utils.toArray(".project-card-xl").forEach((tech) => {
+    const tl = createTimeline(tech as HTMLElement);
 
-  gsap.utils.toArray('.project-card-xl').forEach((tech) => {
-  const tl = createTimeline(tech as HTMLElement);
-
-    tl.add(
-      fadeInAndSlideIn(tech as HTMLElement, 100 ,0.4)
-    )
-  })
+    tl.add(fadeInAndSlideIn(tech as HTMLElement, 100, 0.4));
+  });
 </script>
 <section
   id="projects"

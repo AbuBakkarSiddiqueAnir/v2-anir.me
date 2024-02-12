@@ -6,7 +6,7 @@ export const fadeInAndSlideIn = (
   element: string | HTMLElement,
   y = 0,
   duration = 0.5,
-  ease = "ease"
+  ease = "ease",
 ) => {
   return gsap.from(element, {
     opacity: 0,
@@ -21,7 +21,7 @@ export const fadeInAndSlideInFromX = (
   element: string | HTMLElement,
   x = 0,
   duration = 0.5,
-  ease = "ease"
+  ease = "ease",
 ) => {
   return gsap.from(element, {
     opacity: 0,

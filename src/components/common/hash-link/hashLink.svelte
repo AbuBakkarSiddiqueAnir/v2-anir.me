@@ -71,7 +71,7 @@
       // Ensuring the navigation component never goes out of the screen & kind of stays in the middle
       const newY = Math.min(
         scrollPosition / ((maxScroll / window.innerHeight) * 3),
-        document.documentElement.clientHeight - floatNav.offsetHeight
+        document.documentElement.clientHeight - floatNav.offsetHeight,
       );
 
       gsap.to(floatNav, { y: newY, duration: 0.3 });
@@ -82,7 +82,7 @@
 
 <nav
   bind:this={floatNav}
-  class="fixed right-2 z-[1000000] shadow-[0px_1px_2px_0px_rgba(255,255,255,0.75)] top-48 rounded-sm bg-dark-navy py-3"
+  class="fixed right-2 top-48 z-[1000000] rounded-sm bg-dark-navy py-3 shadow-[0px_1px_2px_0px_rgba(255,255,255,0.75)]"
 >
   <ul>
     {#each config.hashLinks as link}
