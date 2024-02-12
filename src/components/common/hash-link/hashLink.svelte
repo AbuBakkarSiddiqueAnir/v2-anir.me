@@ -72,7 +72,7 @@
 
 <nav
   bind:this={floatNav}
-  class="fixed right-2 top-48 rounded-sm bg-dark-navy py-3"
+  class="fixed right-2 z-[1000000] shadow-[0px_1px_2px_0px_rgba(255,255,255,0.75)] top-48 rounded-sm bg-dark-navy py-3"
 >
   <ul>
     {#each config.hashLinks as link}
