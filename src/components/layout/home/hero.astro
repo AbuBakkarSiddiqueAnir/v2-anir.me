@@ -3,44 +3,12 @@ import * as heroContent from "../../../static-content/home/hero.md";
 ---
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-
-  const commonElementTriggerSettings = {
-    start: "top 80%",
-    end: "bottom 70%",
-  };
-
-  const createTimeline = (trigger: string | null) => {
-    return gsap.timeline({
-      scrollTrigger: {
-        trigger: trigger,
-        // scrub: 1,
-        ...commonElementTriggerSettings,
-      },
-    });
-  };
+import  { createTimeline,fadeInAndSlideIn } from "@/helper/gsap";
 
   const tl1 = createTimeline("#text-1");
   const tl2 = createTimeline("#text-1");
   const tl3 = createTimeline("#text-1");
   const tl4 = createTimeline("#text-1");
-
-  function fadeInAndSlideIn(
-    element: string | HTMLElement,
-    y = 0,
-    duration = 0.5,
-    ease = "ease",
-  ) {
-    return gsap.from(element, {
-      opacity: 0,
-      y,
-
-      duration: duration,
-      ease,
-    });
-  }
 
   tl1.add(fadeInAndSlideIn("#text-1", 150));
   tl2.add(fadeInAndSlideIn("#text-2", 200));
