@@ -1,11 +1,13 @@
-import { makeGenericAPIRouteHandler } from '@keystatic/core/api/generic';
-import { config as config$1, collection, fields } from '@keystatic/core';
+import { makeGenericAPIRouteHandler } from "@keystatic/core/api/generic";
+import { config as config$1, collection, fields } from "@keystatic/core";
 
-function getDefaultExportFromCjs (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+function getDefaultExportFromCjs(x) {
+  return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default")
+    ? x["default"]
+    : x;
 }
 
-var setCookie = {exports: {}};
+var setCookie = { exports: {} };
 
 var defaultParseOptions = {
   decodeValues: true,
@@ -36,7 +38,7 @@ function parseString(setCookieValue, options) {
       "set-cookie-parser encountered an error while decoding a cookie with value '" +
         value +
         "'. Set options.decodeValues to false to disable this feature.",
-      e
+      e,
     );
   }
 
@@ -115,7 +117,7 @@ function parse(input, options) {
       // warn if called on a request-like object with a cookie header rather than a set-cookie header - see #34, 36
       if (!sch && input.headers.cookie && !options.silent) {
         console.warn(
-          "Warning: set-cookie-parser appears to have been called on a request object. It is designed to parse Set-Cookie headers from responses, not Cookie headers from requests. Set the option {silent: true} to suppress this warning."
+          "Warning: set-cookie-parser appears to have been called on a request object. It is designed to parse Set-Cookie headers from responses, not Cookie headers from requests. Set the option {silent: true} to suppress this warning.",
         );
       }
       input = sch;
@@ -229,31 +231,41 @@ function splitCookiesString(cookiesString) {
 
 setCookie.exports = parse;
 setCookie.exports.parse = parse;
-var parseString_1 = setCookie.exports.parseString = parseString;
+var parseString_1 = (setCookie.exports.parseString = parseString);
 setCookie.exports.splitCookiesString = splitCookiesString;
 
 function makeHandler(_config) {
   var _config$clientId, _config$clientSecret, _config$secret;
-  const handler = makeGenericAPIRouteHandler({
-    ..._config,
-    clientId: (_config$clientId = _config.clientId) !== null && _config$clientId !== void 0 ? _config$clientId : tryOrUndefined(() => {
-      return "Iv1.008cae13426aaf9c";
-    }),
-    clientSecret: (_config$clientSecret = _config.clientSecret) !== null && _config$clientSecret !== void 0 ? _config$clientSecret : tryOrUndefined(() => {
-      return "299644b6b8b100ecdf447c0c5e8c31d27e03a076";
-    }),
-    secret: (_config$secret = _config.secret) !== null && _config$secret !== void 0 ? _config$secret : tryOrUndefined(() => {
-      return "cb617a3c09e258e5b3b39ebcdd7e6b7c9c97fc13615e6679223753e7797e2395d47e24ee4aea0195";
-    })
-  }, {
-    slugEnvName: 'PUBLIC_KEYSTATIC_GITHUB_APP_SLUG'
-  });
+  const handler = makeGenericAPIRouteHandler(
+    {
+      ..._config,
+      clientId:
+        (_config$clientId = _config.clientId) !== null &&
+        _config$clientId !== void 0
+          ? _config$clientId
+          : tryOrUndefined(() => {
+              return "Iv1.008cae13426aaf9c";
+            }),
+      clientSecret:
+        (_config$clientSecret = _config.clientSecret) !== null &&
+        _config$clientSecret !== void 0
+          ? _config$clientSecret
+          : tryOrUndefined(() => {
+              return "299644b6b8b100ecdf447c0c5e8c31d27e03a076";
+            }),
+      secret:
+        (_config$secret = _config.secret) !== null && _config$secret !== void 0
+          ? _config$secret
+          : tryOrUndefined(() => {
+              return "cb617a3c09e258e5b3b39ebcdd7e6b7c9c97fc13615e6679223753e7797e2395d47e24ee4aea0195";
+            }),
+    },
+    {
+      slugEnvName: "PUBLIC_KEYSTATIC_GITHUB_APP_SLUG",
+    },
+  );
   return async function keystaticAPIRoute(context) {
-    const {
-      body,
-      headers,
-      status
-    } = await handler(context.request);
+    const { body, headers, status } = await handler(context.request);
     // all this stuff should be able to go away when astro is using a version of undici with getSetCookie
     let headersInADifferentStructure = new Map();
     if (headers) {
@@ -264,14 +276,21 @@ function makeHandler(_config) {
           }
           headersInADifferentStructure.get(key.toLowerCase()).push(value);
         }
-      } else if (typeof headers.entries === 'function') {
+      } else if (typeof headers.entries === "function") {
         for (const [key, value] of headers.entries()) {
           headersInADifferentStructure.set(key.toLowerCase(), [value]);
         }
-        if ('getSetCookie' in headers && typeof headers.getSetCookie === 'function') {
+        if (
+          "getSetCookie" in headers &&
+          typeof headers.getSetCookie === "function"
+        ) {
           const setCookieHeaders = headers.getSetCookie();
-          if (setCookieHeaders !== null && setCookieHeaders !== void 0 && setCookieHeaders.length) {
-            headersInADifferentStructure.set('set-cookie', setCookieHeaders);
+          if (
+            setCookieHeaders !== null &&
+            setCookieHeaders !== void 0 &&
+            setCookieHeaders.length
+          ) {
+            headersInADifferentStructure.set("set-cookie", setCookieHeaders);
           }
         }
       } else {
@@ -280,30 +299,35 @@ function makeHandler(_config) {
         }
       }
     }
-    const setCookieHeaders = headersInADifferentStructure.get('set-cookie');
-    headersInADifferentStructure.delete('set-cookie');
+    const setCookieHeaders = headersInADifferentStructure.get("set-cookie");
+    headersInADifferentStructure.delete("set-cookie");
     if (setCookieHeaders) {
       for (const setCookieValue of setCookieHeaders) {
         var _options$sameSite;
-        const {
-          name,
-          value,
-          ...options
-        } = parseString_1(setCookieValue);
-        const sameSite = (_options$sameSite = options.sameSite) === null || _options$sameSite === void 0 ? void 0 : _options$sameSite.toLowerCase();
+        const { name, value, ...options } = parseString_1(setCookieValue);
+        const sameSite =
+          (_options$sameSite = options.sameSite) === null ||
+          _options$sameSite === void 0
+            ? void 0
+            : _options$sameSite.toLowerCase();
         context.cookies.set(name, value, {
           domain: options.domain,
           expires: options.expires,
           httpOnly: options.httpOnly,
           maxAge: options.maxAge,
           path: options.path,
-          sameSite: sameSite === 'lax' || sameSite === 'strict' || sameSite === 'none' ? sameSite : undefined
+          sameSite:
+            sameSite === "lax" || sameSite === "strict" || sameSite === "none"
+              ? sameSite
+              : undefined,
         });
       }
     }
     return new Response(body, {
       status,
-      headers: [...headersInADifferentStructure.entries()].flatMap(([key, val]) => val.map(x => [key, x]))
+      headers: [...headersInADifferentStructure.entries()].flatMap(
+        ([key, val]) => val.map((x) => [key, x]),
+      ),
     });
   };
 }
@@ -317,7 +341,7 @@ function tryOrUndefined(fn) {
 
 const config = config$1({
   ui: {
-    brand: { name: "aanir.com" }
+    brand: { name: "aanir.com" },
   },
   // storage: {
   //   kind: "github",
@@ -325,7 +349,7 @@ const config = config$1({
   //   branchPrefix: "anirApp",
   // },
   storage: {
-    kind: "local"
+    kind: "local",
   },
   collections: {
     articles: collection({
@@ -337,20 +361,20 @@ const config = config$1({
         title: fields.slug({ name: { label: "Title" } }),
         short: fields.text({
           label: "Quote",
-          multiline: true
+          multiline: true,
         }),
         date: fields.date({
           label: "Article date",
-          description: "The date of the article published"
+          description: "The date of the article published",
         }),
         heroImage: fields.image({
           label: "HeroImage",
           directory: "public/images/hero",
-          publicPath: "/images/hero/"
+          publicPath: "/images/hero/",
         }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tag",
-          itemLabel: (props) => props.value
+          itemLabel: (props) => props.value,
         }),
         content: fields.document({
           label: "Content",
@@ -362,9 +386,10 @@ const config = config$1({
             schema: {
               title: fields.text({
                 label: "Caption",
-                description: "The text to display under the image in a caption."
-              })
-            }
+                description:
+                  "The text to display under the image in a caption.",
+              }),
+            },
           },
           dividers: true,
           formatting: {
@@ -376,15 +401,15 @@ const config = config$1({
               bold: true,
               italic: true,
               underline: true,
-              strikethrough: true
+              strikethrough: true,
             },
-            listTypes: true
+            listTypes: true,
           },
-          tables: true
-        })
-      }
-    })
-  }
+          tables: true,
+        }),
+      },
+    }),
+  },
 });
 
 const all = makeHandler({ config });
@@ -392,11 +417,17 @@ const ALL = all;
 
 const prerender = false;
 
-const keystaticApi = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	ALL,
-	all,
-	prerender
-}, Symbol.toStringTag, { value: 'Module' }));
+const keystaticApi = /*#__PURE__*/ Object.freeze(
+  /*#__PURE__*/ Object.defineProperty(
+    {
+      __proto__: null,
+      ALL,
+      all,
+      prerender,
+    },
+    Symbol.toStringTag,
+    { value: "Module" },
+  ),
+);
 
 export { getDefaultExportFromCjs as g, keystaticApi as k };
