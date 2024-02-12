@@ -15,18 +15,29 @@
   let halfViewportHeight = null;
   onMount(() => {
     // const homepageURL = process.env.HOMEPAGE_URL;
-
     const currentURL = window.location.href;
-    if (
-      currentURL === "http://localhost:4321/" ||
-      "https://aanir.com" ||
-      "http://localhost:4321" ||
-      "https://aanir.com/"
-    ) {
-      floatNav.classList.remove("hidden");
-    } else {
-      floatNav.classList.add("hidden");
+    console.log(currentURL);
+
+    // Define the URLs where you want to show the floatNav
+    const validURLs = [
+      "http://127.0.0.1:4321/",
+      "https://aanir.com",
+      "http://127.0.0.1:4321",
+      "https://aanir.com/",
+    ];
+
+    // Check if the currentURL exists in the validURLs array
+    const showFloatNav = validURLs.includes(currentURL);
+
+    // Toggle the visibility of floatNav based on showFloatNav
+    if (floatNav) {
+      if (showFloatNav) {
+        floatNav.classList.remove("hidden");
+      } else {
+        floatNav.classList.add("hidden");
+      }
     }
+
     // Calculating maximum available scrolling distance
     sectionElements = document.querySelectorAll(".main-section");
     halfViewportHeight = window.innerHeight * 0.5;
