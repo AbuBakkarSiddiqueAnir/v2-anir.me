@@ -2,17 +2,30 @@
 import WorkSlider from "./workSlider.svelte";
 ---
 
+<script>
+
+import { createTimeline,fadeInAndSlideInFromX } from "@/helper/gsap";
+
+
+    const tl1 = createTimeline("#jobs");
+
+
+  tl1.add(fadeInAndSlideInFromX("#jobs", 150));
+
+
+</script>
+
 <section
   id="jobs"
   class="main-section mt-10 flex min-h-[50vh] w-full justify-center px-6"
 >
   <div class="h-auto w-[50rem] text-left">
-    <h3 class="pb-5 text-h-md md:pb-12">
+    <h3  class="pb-5 text-h-md md:pb-12">
       Where I worked at ? <span class="text-[10px] text-green"
         >______________________
       </span>
     </h3>
-    <div class="slider w-full">
+    <div id="work-slider" class="slider w-full">
       <WorkSlider client:idle />
     </div>
   </div>

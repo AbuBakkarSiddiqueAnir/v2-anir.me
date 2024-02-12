@@ -37,7 +37,7 @@ export const commonElementTriggerSettings = {
   end: "bottom 70%",
 };
 
-export const createTimeline = (trigger: string | null) => {
+export const createTimeline = (trigger: string | null | HTMLElement) => {
   return gsap.timeline({
     scrollTrigger: {
       trigger: trigger,

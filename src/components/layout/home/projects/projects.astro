@@ -2,12 +2,32 @@
 import IndividualProjectsContainer from "./IndividualProjectsContainer.astro";
 ---
 
+<script>
+  import { gsap } from "gsap";
+
+import { createTimeline,fadeInAndSlideIn } from "@/helper/gsap";
+
+  const tl2 = createTimeline("#project-title-1");
+
+ 
+
+  tl2.add(fadeInAndSlideIn("#project-title-1", 100));
+
+
+  gsap.utils.toArray('.project-card-xl').forEach((tech) => {
+  const tl = createTimeline(tech as HTMLElement);
+
+    tl.add(
+      fadeInAndSlideIn(tech as HTMLElement, 100 ,0.4)
+    )
+  })
+</script>
 <section
   id="projects"
   class="main-section inter flex min-h-[80vh] w-full px-6 py-16"
 >
   <div class="mx-auto h-auto w-[60rem] text-left">
-    <h3 class="pb-5 text-left text-h-md md:pb-12">
+    <h3 id="project-title-1" class="pb-5 text-left text-h-md md:pb-12">
       Projects I worked at ? <span class="text-[10px] text-green"
         >______________________
       </span>
