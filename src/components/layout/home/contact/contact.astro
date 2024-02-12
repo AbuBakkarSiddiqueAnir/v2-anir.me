@@ -1,3 +1,16 @@
+<script>
+
+
+import { createTimeline,fadeInAndSlideIn } from "@/helper/gsap";
+
+  const tl1= createTimeline("#contact");
+  const tl2 = createTimeline("#contact");
+
+ 
+
+  tl1.add(fadeInAndSlideIn("#contact", 250));
+  tl2.add(fadeInAndSlideIn("#whatsapp", 500,0.6));
+</script>
 <div
   id="contact"
   class="main-section flex min-h-[90vh] w-full items-center justify-center px-6 font-sans"
@@ -13,9 +26,16 @@
     </p>
     <div class="mt-10 flex flex-col items-center justify-center gap-4">
       <span class="text-h-sm"> Say Hello On Whatsapp</span>
-      <a href="https://wa.me/+8801864682913" target="_blank">
+   
+      <div class="flex gap-3" id="whatsapp">
+           <a href="https://wa.me/+8801864682913" target="_blank">
         <img src="/icons/whatsapp.png" class="h-10" alt="" />
       </a>
+ <!-- <a href="https://www.facebook.com/URwastingyourtimedude/" target="_blank" >
+        <img src="/icons/messenger.svg" class="h-10" alt="" />
+      </a> -->
+      </div>
+      
     </div>
   </div>
 </div>
