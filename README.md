@@ -50,4 +50,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries or support related to this project, feel free to contact [Your Name] at [your.email@example.com].
+For any inquiries or support related to this project, feel free to contact Abu bakar anir at anirdms@gmail.com .
