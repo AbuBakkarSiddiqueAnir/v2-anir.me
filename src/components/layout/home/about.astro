@@ -2,18 +2,40 @@
 import config from "@/configurations/config";
 type TechKey = "Language" | "Frontend" | "Backend" | "Database" | "CMS";
 ---
+<script>
+import { gsap } from "gsap";
+
+import { createTimeline,fadeInAndSlideIn, fadeInAndSlideInFromX } from "@/helper/gsap";
+
+
+    const tl1 = createTimeline("#about-title-1");
+  const tl2 = createTimeline("#about-p-1");
+  const tl3 = createTimeline("#about-image-1");
+  const tl4 = createTimeline("#techs");
+
+  tl1.add(fadeInAndSlideIn("#about-title-1", 100));
+  tl2.add(fadeInAndSlideIn("#about-p-1", 150));
+  tl3.add(fadeInAndSlideIn("#about-image-1", 250));
+  // tl4.add(fadeInAndSlideIn("#text-4", 450));
+  // tl4.add(fadeInAndSlideIn("#contact-linkedin-button", 100));
+  gsap.utils.toArray('.tech-area').forEach((tech,index) => {
+    tl4.add(
+      fadeInAndSlideInFromX(tech as HTMLElement, 100 ,0.1*index)
+    )
+  })
+</script>
 
 <section id="about" class="main-section min-h-[90vh] w-full px-6">
   <div class="mx-auto h-auto max-w-[60rem] text-left">
-    <h3 class="text-h-md">
+    <h3 id="about-title-1" class="text-h-md">
       About me <span class="text-[10px] text-green"
         >______________________
       </span>
     </h3>
 
     <div class="content mt-10 flex max-w-full flex-col gap-8 md:flex-row">
-      <div class="order-2 w-full md:order-1 md:w-3/5">
-        <p class="inter text-b-2 text-light-slate">
+      <div id="about-p-1" class="order-2 w-full md:order-1 md:w-3/5">
+        <p  class="inter text-b-2 text-light-slate">
           Hello! My name is Abu Bakar Anir and I enjoy creating things that live
           on the internet. My interest in web development started back in 2020
           when I decided to build this with small web apllications like games ,
@@ -35,11 +57,11 @@ type TechKey = "Language" | "Frontend" | "Backend" | "Database" | "CMS";
           I’ve been working with recently:
         </p>
 
-        <div class="my-6 grid w-full grid-cols-3 md:w-2/3">
+        <div id="techs" class="my-6 grid w-full grid-cols-3 md:w-2/3">
           {
             Object.keys(config.techs).map((key) => {
               return (
-                <div class="mt-3">
+                <div  class="mt-3 tech-area">
                   <h5 class="mb-2 text-b-2">{key}</h5>
                   <ol>
                     {config.techs[key as TechKey].map((tech) => (
@@ -57,7 +79,8 @@ type TechKey = "Language" | "Frontend" | "Backend" | "Database" | "CMS";
 
       <div class="order-1 w-full md:order-2 md:w-2/5">
         <div
-          class="group relative max-w-[18rem] cursor-pointer overflow-visible"
+        id="about-image-1"
+          class="group  relative max-w-[18rem] cursor-pointer overflow-visible"
         >
           <div
             class="absolute left-[3%] top-[3%] z-[-1] h-full w-full rounded-sm border border-solid border-green/40 transition-all duration-300 group-hover:left-[4%] group-hover:top-[4%] group-hover:border-dashed"

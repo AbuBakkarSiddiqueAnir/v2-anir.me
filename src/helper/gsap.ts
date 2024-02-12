@@ -17,6 +17,21 @@ export const fadeInAndSlideIn = (
   });
 };
 
+export const fadeInAndSlideInFromX = (
+  element: string | HTMLElement,
+  x = 0,
+  duration = 0.5,
+  ease = "ease"
+) => {
+  return gsap.from(element, {
+    opacity: 0,
+    x,
+
+    duration: duration,
+    ease,
+  });
+};
+
 export const commonElementTriggerSettings = {
   start: "top 80%",
   end: "bottom 70%",
