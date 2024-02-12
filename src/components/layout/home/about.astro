@@ -8,16 +8,14 @@ import { gsap } from "gsap";
 import { createTimeline,fadeInAndSlideIn, fadeInAndSlideInFromX } from "@/helper/gsap";
 
 
-    const tl1 = createTimeline("#about-title-1");
-  const tl2 = createTimeline("#about-p-1");
-  const tl3 = createTimeline("#about-image-1");
+    const tl1 = createTimeline("#about");
+
   const tl4 = createTimeline("#techs");
 
   tl1.add(fadeInAndSlideIn("#about-title-1", 100));
-  tl2.add(fadeInAndSlideIn("#about-p-1", 150));
-  tl3.add(fadeInAndSlideIn("#about-image-1", 250));
-  // tl4.add(fadeInAndSlideIn("#text-4", 450));
-  // tl4.add(fadeInAndSlideIn("#contact-linkedin-button", 100));
+  tl1.add(fadeInAndSlideIn("#about-p-1", 150));
+  tl1.add(fadeInAndSlideIn("#about-image-1", 250));
+
   gsap.utils.toArray('.tech-area').forEach((tech,index) => {
     tl4.add(
       fadeInAndSlideInFromX(tech as HTMLElement, 100 ,0.1*index)
