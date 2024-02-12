@@ -16,7 +16,6 @@
   onMount(() => {
     // const homepageURL = process.env.HOMEPAGE_URL;
     const currentURL = window.location.href;
-    console.log(currentURL);
 
     // Define the URLs where you want to show the floatNav
     const validURLs = [
