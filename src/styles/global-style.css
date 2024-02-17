@@ -13,7 +13,7 @@
 }
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-hidden;
   }
 
   @font-face {
