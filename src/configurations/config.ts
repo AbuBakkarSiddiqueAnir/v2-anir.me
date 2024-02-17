@@ -118,10 +118,10 @@ export const config = {
       name: "Articles",
       url: "/articles",
     },
-    // {
-    //   name: "About",
-    //   url: "#about",
-    // },
+    {
+      name: "Javascript",
+      url: "/javascript",
+    },
     // {
     //   name: "Experience",
     //   url: "#experience",
