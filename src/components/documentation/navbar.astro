@@ -1,0 +1,54 @@
+---
+import Modal from "./Modal.astro";
+---
+
+<script>
+  const handleInputFocus = () => {
+    const modal = document.getElementById("searchModal") as HTMLElement;
+    modal.classList.remove("hidden");
+  };
+
+  const handleDocumentClick = (evt:Event) => {
+    const flyoutEl = document.getElementById("searchDiv");
+    let targetEl = evt.target;
+
+    do {
+      if (targetEl === flyoutEl) return;
+      targetEl = targetEl.parentNode;
+    } while (targetEl)
+    console.log('outside')
+
+    const modal = document.getElementById("searchModal");
+    modal.classList.add("hidden");
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.querySelector('input[type="text"]');
+    if (input) input.addEventListener("focus", handleInputFocus);
+
+    document.addEventListener("click", handleDocumentClick);
+  });
+</script>
+
+<nav class="flex w-full items-center gap-x-20 px-4 py-4">
+  <h2 class="max-w-min whitespace-nowrap text-h-md first-letter:text-red">
+    Javascript Documentation
+  </h2>
+  <div class="flex-start flex-1 justify-center">
+    <input
+      accept="text"
+      class="border-spacing-2xl border border-neutral-900 px-4 py-1"
+      type="text"
+    />
+  </div>
+</nav>
+
+<Modal id="searchModal">
+  <div id="searchDiv" class="list z-50 mx-auto mt-32 max-w-3xl bg-white blur-0">
+    <article>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, maxime
+      voluptatem. Nisi maiores adipisci earum repellendus a odio aspernatur illo
+      exercitationem expedita.
+    </article>
+  </div>
+</Modal>
